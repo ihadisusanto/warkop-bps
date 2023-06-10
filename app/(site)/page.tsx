@@ -1,6 +1,7 @@
 import ChatSys from "../components/chatstuff/page"
 import Footer2nd from "../components/footer2nd/page"
 import Header from "../components/header/page"
+import Card from "./components/card"
 import Video from "./components/video"
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <h3 className="text-secondaryBrown font-bold text-center text-3xl mt-20">Pengenalan WARKOP</h3>
     </div>
     <Video/>
+    <Card/>
     <Footer2nd/>
     <ChatSys/>
     </>
