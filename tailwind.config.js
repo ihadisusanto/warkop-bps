@@ -15,6 +15,12 @@ module.exports = {
       fontFamily: {
         poppins : ['var(--font-poppins)'],
       },
+      colors: {
+        primary: '#FCD930',
+        darkbrown : '#2F2100',
+        secondaryBrown : '#491404',
+        secondaryGray : '#323A45'
+      }
     },
   },
   plugins: [],
