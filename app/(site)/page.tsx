@@ -5,6 +5,9 @@ export default function Home() {
   return (
     <>
     <Header/>
+    <div className="min-h-full">
+
+    </div>
     <Footer2nd/>
     </>
   )

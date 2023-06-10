@@ -57,16 +57,16 @@ export default function Header() {
                         <nav id="nav-menu" className="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[200px] w-full left-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none">
                             <ul className="block lg:flex">
                                 <li className="group">
-                                    <a href="#home" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400">Beranda</a>
+                                    <a href="/" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400">Beranda</a>
                                 </li>
                                 <li className="group">
-                                    <a href="#about" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400">Kompetensi</a>
+                                    <a href="/kompetensi" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400">Kompetensi</a>
                                 </li>
                                 <li className="group">
-                                    <a href="#portfolio" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400">FAQ</a>
+                                    <a href="/faq" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400">FAQ</a>
                                 </li>
                                 <li className="group">
-                                    <a href="#clients" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400">Pengumuman</a>
+                                    <a href="/pengumuman" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400">Pengumuman</a>
                                 </li>
                                 <div className="md:hidden">
                                     <hr/>
@@ -97,11 +97,11 @@ export default function Header() {
                         <div id="login-menu" className="hidden absolute bg-slate-100 shadow-lg rounded-lg max-w-[250px] w-full right-9 mt-3">
                             <ul className="block">
                                 <li className="group hover:bg-primary transition duration-300">
-                                    <a href="#" className="text-base text-secondaryBrown py-2 mx-4 flex group-hover:text-primary transition duration-400"><img src={bps.src} alt="BPS" className="inline"/></a>
+                                    <a href="/sso" className="text-base text-secondaryBrown py-2 mx-4 flex group-hover:text-primary transition duration-400"><img src={bps.src} alt="BPS" className="inline"/></a>
                                 </li>
                                 <hr className="border-slate-300"/>
                                 <li className="group  hover:bg-primary transition duration-300">
-                                    <a href="#" className="text-base text-secondaryBrown py-2 mx-4 flex group-hover:text-primary transition duration-400"><img src={login.src} alt="Login" className="inline"/></a>
+                                    <a href="/login" className="text-base text-secondaryBrown py-2 mx-4 flex group-hover:text-primary transition duration-400"><img src={login.src} alt="Login" className="inline"/></a>
                                 </li>
                             </ul>
                         </div>
