@@ -16,7 +16,7 @@ module.exports = {
         poppins : ['var(--font-poppins)'],
       },
       colors: {
-        primary: '#FCD930',
+        primary: '#F9BF3B',
         darkbrown : '#2F2100',
         secondaryBrown : '#491404',
         secondaryGray : '#323A45'
