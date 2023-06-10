@@ -4,7 +4,7 @@ import FtImg from "@/public/asset/Logo Warkop Footer.png"
 export default function Footer2nd() {
     return (
         <div className="bg-gray-900 w-full flex justify-between text-start py-10 px-4 lg:px-20 lg:text-sm text-xs mt-auto">
-            <Image src={FtImg} alt="Gambar Footer"className="mt-10 md:mt-0 md:w-[150px] w-[130px] md:h-[150px] h-[130px]"/>
+            <Image src={FtImg} alt="Gambar Footer"className="mt-12 md:mt-0 md:w-[150px] w-[110px] md:h-[150px] h-[110px]"/>
             <ul>
                 <li className="text-primary font-semibold mb-3">Link Terkait</li>
                 <li className="text-white font-light mb-1"><a href="https://bps.go.id" className="flex hover:text-primary"><p className="text-primary mr-2">&gt;</p>Badan Pusat Statistik</a></li>
