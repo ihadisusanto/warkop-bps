@@ -1,6 +1,6 @@
 export default function Video() {
     return(
-    <div className="lg:my-8 px-8 pb-6 bg-base">
+    <div className="lg:mt-8 px-8 pb-6 bg-base">
         <div className="mx-auto w-full lg:w-1/2">
             <p className="text-darkbrown text-justify lg:text-center">Warkop hadir untuk mengakomodir seluruh kegiatan pendidikan dan pelatihan baik diklat prajabatan dan kepemimpinan maupun diklat teknis dan fungsional.</p>
         </div>
