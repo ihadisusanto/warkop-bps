@@ -46,7 +46,7 @@ export default function Header() {
     return(
         <header className="bg-transparent absolute w-full top-0 left-0 flex items-center z-10">
             <div className="w-full">
-                <div className="flex items-center justify-between relative">
+                <div className="flex items-center justify-center lg:justify-between relative">
                     <div className="flex items-center px-4">
                         <button id="hamburger" name="hamburger" type="button" className="block absolute left-4 lg:hidden">
                             <span className="hamburger-line transition duration-300 ease-in-out origin-top-left"></span>
@@ -75,33 +75,33 @@ export default function Header() {
                                     </li>
                                     <div id="login-details" className="hidden pl-3">
                                         <li className="group">
-                                            <a href="#" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400"><img src={bps.src} className="scale-80" alt="" /></a>
+                                            <a href="/sso" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400"><img src={bps.src} className="scale-80" alt="" /></a>
                                         </li>
                                         <li className="group">
-                                            <a href="#" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400"><img src={login.src} className="scale-80" alt="" /></a>
+                                            <a href="/login" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400"><img src={login.src} className="scale-80" alt="" /></a>
                                         </li>
                                     </div>
                                     <li className="group">
-                                        <a href="#" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400">Daftar</a>
+                                        <a href="/register" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400">Daftar</a>
                                     </li>
                                 </div>
                             </ul>
                         </nav>
                     </div>
-                    <div className="px-1 lg:mr-32">
+                    <div className="px-1 xl:-ml-32">
                         <img src={warkopLogo.src} alt="Logo Warkop" className="scale-75"/>
                     </div>
-                    <div className="hidden px-4 right-4 md:inline-block">
-                        <button id="loginBtn" className="bg-slate-100 text-secondaryBrown mr-4 py-3 px-8 rounded-md hover:shadow-lg transition duration-500"><p>Login <img src={arrowDown.src} alt="" className="inline" /></p></button>
-                        <button className="bg-primary text-secondaryBrown mr-4 py-3 px-8 rounded-md hover:shadow-lg transition duration-500">Daftar</button>
+                    <div className="hidden px-4 md:inline-block">
+                        <button id="loginBtn" className="bg-slate-100 text-sm text-secondaryBrown mr-4 py-3 px-5 rounded-md hover:shadow-lg transition duration-500 xl:text-base"><p>Login <img src={arrowDown.src} alt="" className="inline" /></p></button>
+                        <button className="bg-primary text-secondaryBrown text-sm mr-4 py-3 px-5 rounded-md hover:shadow-lg transition duration-500 xl:text-base">Daftar</button>
                         <div id="login-menu" className="hidden absolute bg-slate-100 shadow-lg rounded-lg max-w-[250px] w-full right-9 mt-3">
                             <ul className="block">
                                 <li className="group hover:bg-primary transition duration-300">
-                                    <a href="/sso" className="text-base text-secondaryBrown py-2 mx-4 flex group-hover:text-primary transition duration-400"><img src={bps.src} alt="BPS" className="inline"/></a>
+                                    <a href="/sso" className="text-base text-secondaryBrown py-2 mx-4 flex group-hover:text-primary transition duration-400"><img src={bps.src} alt="BPS" className="inline scale-75 xl:scale-90"/></a>
                                 </li>
                                 <hr className="border-slate-300"/>
                                 <li className="group  hover:bg-primary transition duration-300">
-                                    <a href="/login" className="text-base text-secondaryBrown py-2 mx-4 flex group-hover:text-primary transition duration-400"><img src={login.src} alt="Login" className="inline"/></a>
+                                    <a href="/login" className="text-base text-secondaryBrown py-2 mx-4 flex group-hover:text-primary transition duration-400"><img src={login.src} alt="Login" className="inline scale-75 xl:scale-90"/></a>
                                 </li>
                             </ul>
                         </div>
