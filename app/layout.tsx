@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { Poppins } from 'next/font/google'
+import Footer1st from './components/footer1st/page'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,7 +25,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        {children}
+        <footer>
+          <Footer1st/>
+        </footer>
+      </body>
     </html>
   )
 }
