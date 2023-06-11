@@ -20,7 +20,9 @@ module.exports = {
         darkbrown : '#2F2100',
         secondaryBrown : '#491404',
         secondaryGray : '#323A45',
-        base : '#FDFAF6'
+        base : '#FDFAF6',
+        blue1 : '#0088ce',
+        blue2 : '#1db2ff'
       }
     },
   },

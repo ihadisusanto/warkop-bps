@@ -1,4 +1,5 @@
 import ChatSys from "../components/chatstuff/page"
+import Footer1st from "../components/footer1st/page"
 import Footer2nd from "../components/footer2nd/page"
 import Header from "../components/header/page"
 import Card from "./components/card"
@@ -19,6 +20,7 @@ export default function Home() {
     <Video/>
     <Card/>
     <Footer2nd/>
+    <Footer1st/>
     <ChatSys/>
     </>
   )
