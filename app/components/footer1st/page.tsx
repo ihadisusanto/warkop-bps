@@ -1,7 +1,7 @@
 export default function Footer1st() {
     return (
         <div className="text-xs md:text-sm mt-auto">
-            <div className="bg-slate-300 w-full flex justify-between p-4 md:px-20">
+            <div className="bg-white w-full flex justify-between p-4 md:px-20">
                 <p>Copyright &copy; 2019 - NOC Pusdiklat BPS</p>
                 <ul className="flex space-x-6">
                     <li>
