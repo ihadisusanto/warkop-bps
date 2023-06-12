@@ -18,8 +18,8 @@ export default function sso(){
                         <p className="uppercase text-blue-900 text-lg font-bold">Sign In</p>
                         <p className="uppercase text-blue-900 text-sm font-semibold">to access application</p>
                         <form className='mt-4 block' action="">
-                            <input className='rounded-full mb-5 w-full md:w-3/4 h-9 px-3 py-2 border shadow focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500' placeholder='Username'/>
-                            <input className='rounded-full mb-5 w-full md:w-3/4 h-9 px-3 py-2 border shadow focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500' placeholder='Password'/>
+                            <input className='rounded-full mb-5 w-full md:w-3/4 h-9 px-3 py-2 border shadow focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 transition duration-300' placeholder='Username'/>
+                            <input className='rounded-full mb-5 w-full md:w-3/4 h-9 px-3 py-2 border shadow focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 transition duration-300' placeholder='Password'/>
                             <button type="submit" className='text-white w-full md:w-3/4 h-8 rounded-full bg-blue2 hover:bg-blue1'>Log In</button>
                         </form>
                     </div>

@@ -19,7 +19,7 @@ export default function Card(){
                 </div>
                 <div className="w-full lg:w-1/4 px-4">
                     <div className='bg-white rounded-lg shadow-md mb-10 py-8'>
-                        <img src={iconClass.src} alt="buat akun" className='mx-auto'/>
+                        <img src={iconKompentensi.src} alt="buat akun" className='mx-auto'/>
                         <div className='py-8 px-6'>
                             <h3 className='text-center text-secondaryBrown text-xl font-bold mb-2'>Pilih Kompetensi</h3>
                             <p className='text-center'>Lakukan pendaftaran pada menu kompetensi yang dipilih, lalu tunggu konfirmasi kelas.</p>
@@ -28,7 +28,7 @@ export default function Card(){
                 </div>
                 <div className="w-full lg:w-1/4 px-4">
                     <div className='bg-white rounded-lg shadow-md mb-10 py-8'>
-                        <img src={iconKompentensi.src} alt="buat akun" className='mx-auto'/>
+                        <img src={iconClass.src} alt="buat akun" className='mx-auto'/>
                         <div className='py-8 px-6'>
                             <h3 className='text-center text-secondaryBrown text-xl font-bold mb-2'>Pilih Kelas</h3>
                             <p className='text-center'>Setiap kelas memiliki berbagai jenis metode pembelajaran online yang dapat diakses kapanpun</p>
