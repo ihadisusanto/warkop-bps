@@ -1,7 +1,9 @@
+'use client';
 import Footer1st from "../components/footer1st/page";
 import Header from "../components/header/page";
 
 export default function login(){
+
     return(
         <>
             <Header/>

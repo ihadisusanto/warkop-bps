@@ -8,7 +8,7 @@ export default function forgetpass(){
     return(
         <>
             <Header/>
-            <Confirmation/>
+            <InsertEmail/>
             <Footer1st/>
         </>
     )
