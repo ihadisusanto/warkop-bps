@@ -4,6 +4,7 @@ import { Modal } from 'flowbite'
 import type { ModalOptions, ModalInterface } from 'flowbite'
 
 export default function insertEmail(){
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
         const $modalElement: HTMLElement = document.querySelector('#popup-modal')!;
 
@@ -26,6 +27,7 @@ export default function insertEmail(){
         const modal: ModalInterface = new Modal($modalElement, modalOptions);
         // modal.show();        
     });
+    
     return(
         <>
         <div className="h-[80vh] mt-24 lg:px-16 lg:py-16 bg-base flex">

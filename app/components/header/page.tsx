@@ -6,6 +6,7 @@ import warkopLogo from "@/public/asset/Logo Warkop Header.png";
 import arrowDown from "@/public/asset/Arrow Down.png";
 import bps from "@/public/asset/Login BPS Sign-On.png"
 import login from "@/public/asset/Login Warkop Login Page.png"
+import Link from "next/link";
 
 export default function Header() {
     useEffect(() => {
@@ -82,7 +83,7 @@ export default function Header() {
                                         </li>
                                     </div>
                                     <li className="group">
-                                        <a href="/register" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400">Daftar</a>
+                                        <Link href="/register" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400">Daftar</Link>
                                     </li>
                                 </div>
                             </ul>
@@ -93,7 +94,7 @@ export default function Header() {
                     </div>
                     <div className="hidden px-4 md:inline-block">
                         <button id="loginBtn" className="bg-slate-100 text-sm text-secondaryBrown mr-4 py-3 px-5 rounded-md hover:shadow-lg transition duration-500 xl:text-base"><p className="text-secondaryBrown">Login <img src={arrowDown.src} alt="" className="inline" /></p></button>
-                        <button className="bg-primary text-secondaryBrown text-sm mr-4 py-3 px-5 rounded-md hover:shadow-lg transition duration-500 xl:text-base">Daftar</button>
+                        <button className="bg-primary text-secondaryBrown text-sm mr-4 py-3 px-5 rounded-md hover:shadow-lg transition duration-500 xl:text-base"><Link href="/register">Daftar</Link></button>
                         <div id="login-menu" className="hidden absolute bg-slate-100 shadow-lg rounded-lg max-w-[250px] w-full right-9 mt-3">
                             <ul className="block">
                                 <li className="group hover:bg-primary transition duration-300">
