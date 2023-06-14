@@ -168,7 +168,7 @@ export default function Accordions(){
                     <ol className="list-disc ml-3">
                         <li className="mb-1">Perangkat telah memiliki webcam sebagai bagian dari proses pembelajaran di WARKOP yang sebagain materi kompetensi membutuhkan Webinar</li>
                         <li className="mb-1">Jaringan internet yang mumpuni</li>
-                        <li className="mb-1">Tersedia browser Google Chrome ataupun Mozilla firefox</li>
+                        <li className="mb-1">Tersedia browser <span className="font-bold">Google Chrome</span> ataupun <span className="font-bold">Mozilla Firefox</span></li>
                     </ol>
                 </div>
             </div>
@@ -207,10 +207,10 @@ export default function Accordions(){
                 <div className="p-5 border border-t-0 text-secondaryBrown text-sm lg:text-[16px]  border-gray-200">
                     <p className="text-justify mb-2 ">Kamu bisa menghubungi WARKOP melalui :</p>
                     <ol className="list-disc ml-3">
-                        <li className="mb-1">Telepon: (021)7873782-83</li>
-                        <li className="mb-1">Email : pusdiklat.noc@bps.go.id</li>
-                        <li className="mb-1">Instagram : www.instagram.com/pusdiklat.bps</li>
-                        <li className="mb-1">Twitter : https://twitter.com/pusdiklatBPS</li>
+                        <li className="mb-1"><span className="font-bold">Telepon:</span> (021)7873782-83</li>
+                        <li className="mb-1"><span className="font-bold">Email :</span> pusdiklat.noc@bps.go.id</li>
+                        <li className="mb-1"><span className="font-bold">Instagram :</span> www.instagram.com/pusdiklat.bps</li>
+                        <li className="mb-1"><span className="font-bold">Twitter :</span> https://twitter.com/pusdiklatBPS</li>
                     </ol>
                 </div>
             </div>
