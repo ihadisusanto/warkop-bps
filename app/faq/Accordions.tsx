@@ -58,9 +58,9 @@ export default function Accordions(){
         
         // options with default values
         const options: AccordionOptions = {
-            alwaysOpen: true,
-            activeClasses: 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white',
-            inactiveClasses: 'text-gray-500 dark:text-gray-400',
+            alwaysOpen: false,
+            activeClasses: 'bg-gray-100 text-gray-900',
+            inactiveClasses: 'text-gray-500 bg-gray-100',
             onOpen: (item) => {
                 console.log('accordion item has been shown');
                 console.log(item);
@@ -86,11 +86,11 @@ export default function Accordions(){
     })
 
     return(
-        <div className="mt-5 lg:mt-10" id="accordion-collapse" data-accordion="collapse">
+        <div className="mt-5" id="accordion-collapse" data-accordion="collapse">
             <h2 className="border-b-2" id="accordion-collapse-heading-1">
-                <button type="button" className="flex items-center justify-between w-full p-5 text-left text-secondaryBrown font-bold border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 hover:bg-gray-100" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+                <button type="button" className="flex items-center justify-between w-full p-5 text-left text-secondaryBrown font-bold border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 bg-gray-100 hover:bg-gray-200" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
                     <span className="text-sm lg:text-[16px] text-justify">Siapa saja yang dapat menjadi peserta di WARKOP?</span>
-                    <svg data-accordion-icon className="w-6 h-6 shrink-0 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+                    <svg data-accordion-icon className="w-6 h-6 shrink-0 text-primary ml-3 transition-transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                 </button>
             </h2>
             <div id="accordion-collapse-body-1" className="hidden border-b-2" aria-labelledby="accordion-collapse-heading-1">
@@ -99,10 +99,10 @@ export default function Accordions(){
                 </div>  
             </div>
 
-            <h2 className="mt-5 lg:mt-10 border-b-2" id="accordion-collapse-heading-2">
-                <button type="button" className="flex items-center justify-between w-full p-5 text-left text-secondaryBrown font-bold border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 hover:bg-gray-100" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
+            <h2 className="mt-5 border-b-2" id="accordion-collapse-heading-2">
+                <button type="button" className="flex items-center justify-between w-full p-5 text-left text-secondaryBrown font-bold border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 bg-gray-100 hover:bg-gray-200 transition duration-300" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
                 <span className="text-sm lg:text-[16px] text-justify"> Bagaimana cara menjadi peserta di WARKOP?</span>
-                <svg data-accordion-icon className="w-6 h-6 shrink-0 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+                <svg data-accordion-icon className="w-6 h-6 shrink-0 text-primary ml-3 transition-transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                 </button>
             </h2>
             <div id="accordion-collapse-body-2" className="hidden border-b-2" aria-labelledby="accordion-collapse-heading-2">
@@ -111,10 +111,10 @@ export default function Accordions(){
                 </div>
             </div>
 
-            <h2 className="mt-5 lg:mt-10" id="accordion-collapse-heading-3">
-                <button type="button" className="flex items-center justify-between w-full p-5 font-bold text-secondaryBrown text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 hover:bg-gray-100" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
+            <h2 className="mt-5" id="accordion-collapse-heading-3">
+                <button type="button" className="flex items-center justify-between w-full p-5 font-bold text-secondaryBrown text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 bg-gray-100 hover:bg-gray-200 transition duration-300" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
                 <span className="text-sm lg:text-[16px] text-justify">Apa itu platform WARKOP?</span>
-                <svg data-accordion-icon className="w-6 h-6 shrink-0 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+                <svg data-accordion-icon className="w-6 h-6 shrink-0 text-primary ml-3 transition-transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                 </button>
             </h2>
             <div id="accordion-collapse-body-3" className="hidden" aria-labelledby="accordion-collapse-heading-3">
@@ -123,10 +123,10 @@ export default function Accordions(){
                 </div>
             </div> 
 
-            <h2 className="mt-5 lg:mt-10" id="accordion-collapse-heading-4">
-                <button type="button" className="flex items-center justify-between w-full p-5 font-bold text-secondaryBrown text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 hover:bg-gray-100" data-accordion-target="#accordion-collapse-body-4" aria-expanded="false" aria-controls="accordion-collapse-body-4">
+            <h2 className="mt-5" id="accordion-collapse-heading-4">
+                <button type="button" className="flex items-center justify-between w-full p-5 font-bold text-secondaryBrown text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 bg-gray-100 hover:bg-gray-200 transition duration-300" data-accordion-target="#accordion-collapse-body-4" aria-expanded="false" aria-controls="accordion-collapse-body-4">
                     <span className="text-sm lg:text-[16px] text-justify">Fitur apa saja yang tersedia pada platform WARKOP?</span>
-                    <svg data-accordion-icon className="w-6 h-6 shrink-0 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+                    <svg data-accordion-icon className="w-6 h-6 shrink-0 text-primary ml-3 transition-transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                 </button>
             </h2>
             <div id="accordion-collapse-body-4" className="hidden" aria-labelledby="accordion-collapse-heading-4">
@@ -156,10 +156,10 @@ export default function Accordions(){
                 </div>
             </div>
 
-            <h2 className="mt-5 lg:mt-10" id="accordion-collapse-heading-5">
-                <button type="button" className="flex items-center justify-between w-full p-5 font-bold text-secondaryBrown text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 hover:bg-gray-100" data-accordion-target="#accordion-collapse-body-5" aria-expanded="false" aria-controls="accordion-collapse-body-5">
+            <h2 className="mt-5" id="accordion-collapse-heading-5">
+                <button type="button" className="flex items-center justify-between w-full p-5 font-bold text-secondaryBrown text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 bg-gray-100 hover:bg-gray-200 transition duration-300" data-accordion-target="#accordion-collapse-body-5" aria-expanded="false" aria-controls="accordion-collapse-body-5">
                     <span className="text-sm lg:text-[16px] text-justify">Apa saja perangkat dan spesifikasi yang kompatibel dengan penggunaan platform WARKOP?</span>
-                    <svg data-accordion-icon className="w-6 h-6 shrink-0 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+                    <svg data-accordion-icon className="w-6 h-6 shrink-0 text-primary ml-3 transition-transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                 </button>
             </h2>
             <div id="accordion-collapse-body-5" className="hidden" aria-labelledby="accordion-collapse-heading-5">
@@ -173,10 +173,10 @@ export default function Accordions(){
                 </div>
             </div>
 
-            <h2 className="mt-5 lg:mt-10" id="accordion-collapse-heading-6">
-                <button type="button" className="flex items-center justify-between w-full p-5 font-bold text-secondaryBrown text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 hover:bg-gray-100" data-accordion-target="#accordion-collapse-body-6" aria-expanded="false" aria-controls="accordion-collapse-body-6">
+            <h2 className="mt-5" id="accordion-collapse-heading-6">
+                <button type="button" className="flex items-center justify-between w-full p-5 font-bold text-secondaryBrown text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 bg-gray-100 hover:bg-gray-200 transition duration-300" data-accordion-target="#accordion-collapse-body-6" aria-expanded="false" aria-controls="accordion-collapse-body-6">
                     <span className="text-sm lg:text-[16px] text-justify">Video dan Podcast tidak bisa diputar, apa yang harus saya lakukan?</span>
-                    <svg data-accordion-icon className="w-6 h-6 shrink-0 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+                    <svg data-accordion-icon className="w-6 h-6 shrink-0 text-primary ml-3 transition-transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                 </button>
             </h2>
             <div id="accordion-collapse-body-6" className="hidden" aria-labelledby="accordion-collapse-heading-6">
@@ -185,10 +185,10 @@ export default function Accordions(){
                 </div>
             </div>
 
-            <h2 className="mt-5 lg:mt-10" id="accordion-collapse-heading-7">
-                <button type="button" className="flex items-center justify-between w-full p-5 font-bold text-secondaryBrown text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 hover:bg-gray-100" data-accordion-target="#accordion-collapse-body-7" aria-expanded="false" aria-controls="accordion-collapse-body-7">
+            <h2 className="mt-5" id="accordion-collapse-heading-7">
+                <button type="button" className="flex items-center justify-between w-full p-5 font-bold text-secondaryBrown text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 bg-gray-100 hover:bg-gray-200 transition duration-300" data-accordion-target="#accordion-collapse-body-7" aria-expanded="false" aria-controls="accordion-collapse-body-7">
                     <span className="text-sm lg:text-[16px] text-justify">Siapa saja tutor atau pengampu materi di platform WARKOP?</span>
-                    <svg data-accordion-icon className="w-6 h-6 shrink-0 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+                    <svg data-accordion-icon className="w-6 h-6 shrink-0 text-primary ml-3 transition-transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                 </button>
             </h2>
             <div id="accordion-collapse-body-7" className="hidden" aria-labelledby="accordion-collapse-heading-7">
@@ -197,10 +197,10 @@ export default function Accordions(){
                 </div>
             </div>
             
-            <h2 className="mt-5 lg:mt-10" id="accordion-collapse-heading-8">
-                <button type="button" className="flex items-center justify-between w-full p-5 font-bold text-secondaryBrown text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 hover:bg-gray-100" data-accordion-target="#accordion-collapse-body-8" aria-expanded="false" aria-controls="accordion-collapse-body-8">
+            <h2 className="mt-5" id="accordion-collapse-heading-8">
+                <button type="button" className="flex items-center justify-between w-full p-5 font-bold text-secondaryBrown text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 bg-gray-100 hover:bg-gray-200 transition duration-300" data-accordion-target="#accordion-collapse-body-8" aria-expanded="false" aria-controls="accordion-collapse-body-8">
                     <span className="text-sm lg:text-[16px] text-justify">Kemana saya bisa menghubungi layanan pelanggan WARKOP jika terjadi permasalahan terkait teknis penggunaan WARKOP?</span>
-                    <svg data-accordion-icon className="w-6 h-6 shrink-0 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+                    <svg data-accordion-icon className="w-6 h-6 shrink-0 text-primary ml-3 transition-transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                 </button>
             </h2>
             <div id="accordion-collapse-body-8" className="hidden" aria-labelledby="accordion-collapse-heading-8">
