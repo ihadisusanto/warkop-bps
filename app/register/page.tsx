@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/jsx-key */
 'use client'
 import { useState } from "react";
 import Header from "../components/header/page"
@@ -23,7 +25,7 @@ export default function Register(){
     return (
         <div>
             <Header/>
-            <div className="flex justify-between bg-yellow-50 mt-24 py-14 px-4 md:px-8">
+            <div className="flex justify-between bg-base mt-24 py-14 px-4 md:px-8">
                 <div className="hidden md:block w-1/4 pr-4 md:pr-8">
                     <h1 className="text-xl md:text-2xl text-secondaryBrown font-bold mb-6">Daftar</h1>
                     <ul className="bg-white rounded-md shadow-md border border-gray-100">

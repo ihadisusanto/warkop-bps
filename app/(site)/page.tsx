@@ -4,11 +4,12 @@ import Footer2nd from "../components/footer2nd/page"
 import Header from "../components/header/page"
 import Card from "./components/card"
 import Video from "./components/video"
+import Pengumuman from "./components/pengumuman"
 
 export default function Home() {
   return (
     <>
-    <Header/>
+    <Header title="Beranda"/>
     <div className="my-12 lg:mt-24 px-8 pt-16 pb-6">
       <h4 className="text-darkbrown text-2xl font-semibold">Selamat Datang di</h4>
       <h1 className="text-secondaryBrown font-bold uppercase text-4xl my-3">Warung Kompetensi Pegawai</h1>
@@ -19,6 +20,7 @@ export default function Home() {
     </div>
     <Video/>
     <Card/>
+    <Pengumuman/>
     <Footer2nd/>
     <Footer1st/>
     <ChatSys/>

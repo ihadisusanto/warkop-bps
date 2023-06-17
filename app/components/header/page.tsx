@@ -7,8 +7,9 @@ import arrowDown from "@/public/asset/Arrow Down.png";
 import bps from "@/public/asset/Login BPS Sign-On.png"
 import login from "@/public/asset/Login Warkop Login Page.png"
 import Link from "next/link";
+import clsx from 'clsx';
 
-export default function Header() {
+export default function Header({title}:any) {
     useEffect(() => {
         //navbar fixed
         window.onscroll = function(){
@@ -56,18 +57,54 @@ export default function Header() {
                         </button>
 
                         <nav id="nav-menu" className="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[200px] w-full left-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none">
-                            <ul className="block lg:flex">
+                            <ul className="font-semibold block lg:flex">
                                 <li className="group">
-                                    <a href="/" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400">Beranda</a>
+                                    <a href="/" className={clsx(`
+                                    text-base
+                                    py-2
+                                    mx-5 
+                                    flex 
+                                    group-hover:text-primary 
+                                    transition
+                                    duration-400`,
+                                    (title==="Beranda") ? "text-primary" : "text-secondaryBrown"
+                                    )}>Beranda</a>
                                 </li>
                                 <li className="group">
-                                    <a href="/kompetensi" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400">Kompetensi</a>
+                                    <a href="/kompetensi" className={clsx(`
+                                    text-base
+                                    py-2
+                                    mx-5 
+                                    flex 
+                                    group-hover:text-primary 
+                                    transition
+                                    duration-400`,
+                                    (title==="Kompetensi") ? "text-primary" : "text-secondaryBrown"
+                                    )}>Kompetensi</a>
                                 </li>
                                 <li className="group">
-                                    <a href="/faq" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400">FAQ</a>
+                                    <a href="/faq" className={clsx(`
+                                    text-base
+                                    py-2
+                                    mx-5 
+                                    flex 
+                                    group-hover:text-primary 
+                                    transition
+                                    duration-400`,
+                                    (title==="Faq") ? "text-primary" : "text-secondaryBrown"
+                                    )}>FAQ</a>
                                 </li>
                                 <li className="group">
-                                    <a href="/pengumuman" className="text-base text-secondaryBrown py-2 mx-5 flex group-hover:text-primary transition duration-400">Pengumuman</a>
+                                    <a href="/pengumuman" className={clsx(`
+                                    text-base
+                                    py-2
+                                    mx-5 
+                                    flex 
+                                    group-hover:text-primary 
+                                    transition
+                                    duration-400`,
+                                    (title==="Pengumuman") ? "text-primary" : "text-secondaryBrown"
+                                    )}>Pengumuman</a>
                                 </li>
                                 <div className="md:hidden">
                                     <hr/>

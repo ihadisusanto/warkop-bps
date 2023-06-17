@@ -7,7 +7,7 @@ import Accordions from "./Accordions";
 export default function faq() {
     return(
         <>
-            <Header/>
+            <Header title="Faq"/>
                 <div className="h-auto mt-24 w-full p-5 lg:p-10">
                     <p className="text-secondaryBrown text-xl lg:text-3xl font-bold uppercase">Frequently Asked Questions</p>
                     <p className="text-secondaryBrown text-sm lg:text-lg text-justify">Jika masih terdapat pertanyaan yang ingin diajukan, silakan gunakan fitur <span className="font-bold">Chatbot</span> atau <span className="font-bold">Live Chat</span> yang tersedia pada website</p>
