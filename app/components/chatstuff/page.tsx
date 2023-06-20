@@ -63,7 +63,7 @@ export default function ChatSys() {
                         Live Chat
                     </button>
                 </div>
-                <div className="bg-yellow-50 pt-4 px-4 pb-6 text-xs space-y-3">
+                <div className="bg-base pt-4 px-4 pb-6 text-xs space-y-3">
                     <div className="flex">
                         <p className="bg-white p-2 w-full ml-8 text-right rounded-md">Hallo, butuh bantuan?</p>
                         <div className="p-1 h-6 bg-primary ml-2 rounded-sm">
@@ -116,7 +116,7 @@ export default function ChatSys() {
                         Live Chat
                     </button>
                 </div>
-                <div className="bg-yellow-50 p-4 text-xs rounded-b-md">
+                <div className="bg-base p-4 text-xs rounded-b-md">
                     <div className="bg-primary p-4 space-y-3 rounded-md">
                         <input type="text" placeholder="* Nama" className="font-light p-2 w-full rounded-md focus:outline-none"/>
                         <input type="text" placeholder="* Email" className="font-light p-2 w-full rounded-md focus:outline-none"/>

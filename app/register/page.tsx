@@ -21,6 +21,8 @@ export default function Register(){
     const [openGrade, setOpenGrade] = useState(false);
     const [openOffice, setOpenOffice] = useState(false);
     const [openWork, setOpenWork] = useState(false);
+    const [textOffice, setTextOffice] = useState(false);
+    const [textWork, setTextWork] = useState(false);
 
     //handleSubmit Function
     function handleSubmit(e:any){
@@ -65,28 +67,28 @@ export default function Register(){
                             <div className="flex justify-between space-x-7 md:space-x-14">
                                 <div className="w-1/2 space-y-2">
                                     <label className="font-semibold text-sm md:text-[16px]">Nama Depan</label><br />
-                                    <input required type="text" name="nama_depan" id="nama_depan" placeholder="Nama Depan" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <input type="text" placeholder="Nama Depan" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
                                 </div>
                                 <div className="w-1/2 space-y-2">
                                     <label className="font-semibold text-sm md:text-[16px]">Nama Belakang</label><br />
-                                    <input required type="text" name="nama_belakang" id="nama_belakang" placeholder="Nama Belakang" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <input type="text" placeholder="Nama Belakang" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
                                 </div>
                             </div>
                             <div className="w-full space-y-2">
                                     <label className="font-semibold text-sm md:text-[16px]">Nama Pengguna</label><br />
-                                    <input required type="text" name="username" id="username" placeholder="Nama Pengguna" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <input type="text" placeholder="Nama Pengguna" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
                             </div>
                             <div className="w-full space-y-2">
                                     <label className="font-semibold text-sm md:text-[16px]">Kata Sandi</label><br />
-                                    <input required type="password" name="password" id="password" placeholder="*Kata sandi setidaknya memiliki 5 karakter" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <input type="password" placeholder="*Kata sandi setidaknya memiliki 5 karakter" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
                             </div>
                             <div className="w-full space-y-2">
                                     <label className="font-semibold text-sm md:text-[16px]">Konfirmasi Kata Sandi</label><br />
-                                    <input required type="password" name="confpassword" id="confpassword" placeholder="*Kata sandi setidaknya memiliki 5 karakter" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <input type="password" placeholder="*Kata sandi setidaknya memiliki 5 karakter" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
                             </div>
                             <div className="w-full space-y-2">
-                                    <label className="font-semibold text-sm md:text-[16px]">Alamat Surel (Email)</label><br />
-                                    <input required type="email" name="email" id="email" placeholder="alamatsurel@gmail.com" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <label className="font-semibold text-sm md:text-[16px]">Alamat Surel</label><br />
+                                    <input type="email" placeholder="alamatsurel@gmail.com" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
                             </div>
                         </div>
                     </div>
@@ -96,13 +98,13 @@ export default function Register(){
                         <div className="space-y-4">
                             <div className="relative w-full lg:w-1/2 space-y-2 text-sm md:text-[16px]">
                                 <label className="font-semibold">Jenis Kelamin</label><br />
-                                <div onClick={() => setOpenSex(!openSex)} className="bg-gray-100 w-full p-2 flex justify-between items-center rounded-md">
+                                <div onClick={() => setOpenSex(!openSex)} className="bg-gray-100 w-full p-2 flex justify-between items-center rounded-md cursor-pointer">
                                     <p className={selectedSex ? 'text-primary' : 'text-gray-500'}>{selectedSex ? selectedSex : "Pilih..."}</p>
                                     {openSex ? <img src={arrowUp.src} alt="" className="inline" /> : <img src={arrowDown.src} alt="" className="inline" />}
                                 </div>
                                 <ul onClick={() => setOpenSex(!openSex)} className={`bg-white mt-2 shadow-md rounded-md border-gray-100 border ${openSex ? 'absolute w-full z-10' : 'hidden'}`}>
-                                    {linkSex.map((linkSex,index) => (
-                                        <li key={index} onClick={() => {setSelectedSex(linkSex);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedSex==linkSex ? 'text-primary border-l-4 border-primary' : ''}`}>
+                                    {linkSex.map((linkSex) => (
+                                        <li onClick={() => {setSelectedSex(linkSex);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedSex==linkSex ? 'text-primary border-l-4 border-primary' : ''}`}>
                                             {linkSex}
                                         </li>
                                     ))}
@@ -110,13 +112,13 @@ export default function Register(){
                             </div>
                             <div className="relative w-full lg:w-1/2 space-y-2 text-sm md:text-[16px]">
                                 <label className="font-semibold">Pendidikan Terakhir</label><br />
-                                <div onClick={() => setOpenGrade(!openGrade)} className="bg-gray-100 w-full p-2 flex justify-between items-center rounded-md">
+                                <div onClick={() => setOpenGrade(!openGrade)} className="bg-gray-100 w-full p-2 flex justify-between items-center rounded-md cursor-pointer">
                                     <p className={selectedGrade ? 'text-primary' : 'text-gray-500'}>{selectedGrade ? selectedGrade : "Pilih..."}</p>
                                     {openGrade ? <img src={arrowUp.src} alt="" className="inline" /> : <img src={arrowDown.src} alt="" className="inline" />}
                                 </div>
                                 <ul onClick={() => setOpenGrade(!openGrade)} className={`bg-white mt-2 shadow-md rounded-md border-gray-100 border ${openGrade ? 'absolute w-full z-10' : 'hidden'}`}>
-                                    {linkGrade.map((linkGrade,index) => (
-                                        <li key={index} onClick={() => {setSelectedGrade(linkGrade);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedGrade==linkGrade ? 'text-primary border-l-4 border-primary' : ''}`}>
+                                    {linkGrade.map((linkGrade) => (
+                                        <li onClick={() => {setSelectedGrade(linkGrade);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedGrade==linkGrade ? 'text-primary border-l-4 border-primary' : ''}`}>
                                             {linkGrade}
                                         </li>
                                     ))}
@@ -132,32 +134,56 @@ export default function Register(){
                                     <label className="font-semibold">NIK</label><br />
                                     <input required type="text" id="nik" name="nik" placeholder="Nomor Induk Kependudukan" className="bg-gray-100 font-normal rounded-md w-full p-2 text-sm md:text-[16px]"/>
                             </div>
-                            <div className="relative w-full space-y-2 text-sm md:text-[16px]">
+                            <div className="relative w-full space-y-2">
                                     <label className="font-semibold">Kementrian/Lembaga Non BPS</label><br />
-                                    <div onClick={() => setOpenOffice(!openOffice)} className="bg-gray-100 w-full p-2 flex justify-between items-center rounded-md">
+                                    <div className={`relative bg-gray-100 flex justify-between items-center rounded-md ${textOffice ? '' : 'hidden'}`}>
+                                        {textOffice
+                                            ? <input type="text" className={`bg-gray-100 w-full text-gray-500 border-none rounded-md`}/>
+                                            : <input value={""} type="text" className={`bg-gray-100 w-full text-gray-500 border-none rounded-md`}/>
+                                        }
+                                        <div onClick={() => {setTextOffice(!textOffice); setOpenOffice(!openOffice)}} className="py-2 px-4 cursor-pointer">
+                                            <img src={arrowDown.src} alt="" className="inline" />
+                                        </div>
+                                    </div>
+                                    <div onClick={() => setOpenOffice(!openOffice)} className={`bg-gray-100 w-full p-2 flex justify-between items-center rounded-md cursor-pointer ${textOffice ? 'hidden' : ''}`}>
                                         <p className={selectedOffice ? 'text-primary' : 'text-gray-500'}>{selectedOffice ? selectedOffice : "Pilih..."}</p>
                                         {openOffice ? <img src={arrowUp.src} alt="" className="inline" /> : <img src={arrowDown.src} alt="" className="inline" />}
                                     </div>
                                     <ul onClick={() => setOpenOffice(!openOffice)} className={`bg-white mt-2 shadow-md rounded-md border-gray-100 border ${openOffice ? 'absolute w-full z-10' : 'hidden'}`}>
-                                        {linkOffice.map((linkOffice,index) => (
-                                            <li key={index} onClick={() => {setSelectedOffice(linkOffice);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedOffice==linkOffice ? 'text-primary border-l-4 border-primary' : ''}`}>
+                                        {linkOffice.map((linkOffice) => (
+                                            <li onClick={() => {setSelectedOffice(linkOffice);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedOffice==linkOffice ? 'text-primary border-l-4 border-primary' : ''}`}>
                                                 {linkOffice}
                                             </li>
                                         ))}
+                                        <li onClick={() => {setTextOffice(!textOffice); setSelectedOffice("")}} className="hover:bg-base p-2 rounded-md">
+                                            Lainnya...
+                                        </li>
                                     </ul>
                             </div>
                             <div className="relative w-full space-y-2">
                                     <label className="font-semibold">Unit Kerja</label><br />
-                                    <div onClick={() => setOpenWork(!openWork)} className="bg-gray-100 w-full p-2 flex justify-between items-center rounded-md">
+                                    <div className={`relative bg-gray-100 flex justify-between items-center rounded-md ${textWork ? '' : 'hidden'}`}>
+                                        {textWork
+                                            ? <input type="text" className={`bg-gray-100 w-full text-gray-500 border-none rounded-md`}/>
+                                            : <input value={""} type="text" className={`bg-gray-100 w-full text-gray-500 border-none rounded-md`}/>
+                                        }
+                                        <div onClick={() => {setTextWork(!textWork); setOpenWork(!openWork);}} className="py-2 px-4 cursor-pointer">
+                                            <img src={arrowDown.src} alt="" className="inline" />
+                                        </div>
+                                    </div>
+                                    <div onClick={() => setOpenWork(!openWork)} className={`bg-gray-100 w-full p-2 flex justify-between items-center rounded-md cursor-pointer ${textWork ? 'hidden' : ''}`}>
                                         <p className={selectedWork ? 'text-primary' : 'text-gray-500'}>{selectedWork ? selectedWork : "Pilih..."}</p>
                                         {openWork ? <img src={arrowUp.src} alt="" className="inline" /> : <img src={arrowDown.src} alt="" className="inline" />}
                                     </div>
                                     <ul onClick={() => setOpenWork(!openWork)} className={`bg-white mt-2 shadow-md rounded-md border-gray-100 border ${openWork ? 'absolute w-full z-10' : 'hidden'}`}>
-                                        {linkWork.map((linkWork,index) => (
-                                            <li key={index} onClick={() => {setSelectedWork(linkWork);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedWork==linkWork ? 'text-primary border-l-4 border-primary' : ''}`}>
+                                        {linkWork.map((linkWork) => (
+                                            <li onClick={() => {setSelectedWork(linkWork);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedWork==linkWork ? 'text-primary border-l-4 border-primary' : ''}`}>
                                                 {linkWork}
                                             </li>
                                         ))}
+                                        <li onClick={() => {setTextWork(!textWork); setSelectedWork("")}} className="hover:bg-base p-2 rounded-md">
+                                            Lainnya...
+                                        </li>
                                     </ul>
                             </div>
                         </div>
