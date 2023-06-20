@@ -111,8 +111,8 @@ export default function Register(){
                         <h1 className="text-xl md:text-2xl uppercase font-bold text-gray-600 mb-8">Data Kepegawaian</h1>
                         <div className="space-y-4">
                             <div className="w-full space-y-2 text-sm md:text-[16px]">
-                                    <label className="font-semibold">NIP/NRP/NIK</label><br />
-                                    <input type="text" placeholder="Nama Pengguna" className="bg-gray-100 font-normal rounded-md w-full p-2 text-sm md:text-[16px]"/>
+                                    <label className="font-semibold">NIK</label><br />
+                                    <input type="text" placeholder="Nomor Induk Kependudukan" className="bg-gray-100 font-normal rounded-md w-full p-2 text-sm md:text-[16px]"/>
                             </div>
                             <div className="relative w-full space-y-2 text-sm md:text-[16px]">
                                     <label className="font-semibold">Kementrian/Lembaga Non BPS</label><br />

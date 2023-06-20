@@ -5,6 +5,7 @@ export async function GET(request:Request) {
     try{
         const prisma = new PrismaClient();
         const result = await prisma.pengumuman.findMany();
+        prisma.$disconnect();
         return NextResponse.json(result);
     }catch(error){
         console.log("Get Announcement Error",error);

@@ -13,6 +13,7 @@ export default function insertAnnounce(){
             judul:e.target.judul.value,
             status:e.target.status.value,
             waktu:e.target.waktu.value,
+            tanggal:e.target.tanggal.value,
             poster:e.target.poster.value,
             posterBesar:e.target.posterBesar.value,
             isi:e.target.isi.value,
@@ -47,6 +48,7 @@ export default function insertAnnounce(){
                             <label className="font-semibold text-secondaryBrown" htmlFor="waktu">Waktu</label>
                             {/* <input type="text" id="waktu" name="waktu" className="bg-gray-50 border border-gray-300 text-secondaryBrown text-sm rounded-lg focus:ring-2 focus:ring-secondaryBrown focus:outline-none block w-full pl-4 p-2.5 transition duration-300" placeholder=""/> */}
                             <input className="bg-gray-50 border border-gray-300 text-secondaryBrown text-sm rounded-lg focus:ring-2 focus:ring-secondaryBrown focus:outline-none block w-full pl-4 p-2.5 transition duration-300" type="text" id="waktu" name="waktu"></input>
+                            <input className="bg-gray-50 border border-gray-300 text-secondaryBrown text-sm rounded-lg focus:ring-2 focus:ring-secondaryBrown focus:outline-none block w-full pl-4 p-2.5 transition duration-300" type="datetime-local" id="tanggal" name="tanggal"></input>
                         </div>
                         <div className="relative mt-3 w-full lg:w-2/3 mx-auto">
                             <label className="font-semibold text-secondaryBrown" htmlFor="poster">Link Poster</label>

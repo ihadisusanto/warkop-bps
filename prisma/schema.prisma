@@ -30,6 +30,7 @@ model Pengumuman {
   judul String?
   isi String?
   waktu String?
+  tanggal DateTime
   poster String?
   posterBesar String?
   author String?
@@ -44,7 +45,7 @@ model User {
   email String? @unique
   gender String?
   education String?
-  nip String?
+  nik String?
   lembaga String?
   unit_kerja String?
 }

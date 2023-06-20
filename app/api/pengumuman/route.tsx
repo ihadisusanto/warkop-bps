@@ -14,17 +14,20 @@ export async function POST(request:Request) {
             author,
             isi
         }=data;
+        const tanggal = new Date(data.tanggal);
         const result = await prisma.pengumuman.create({
             data:{
                 judul,
                 status,
                 waktu,
+                tanggal,
                 poster,
                 posterBesar,
                 author,
                 isi
             }
         });
+        prisma.$disconnect();
         return NextResponse.json(result);
     }catch(error:any){
         console.log("Input Announcement Error",error);

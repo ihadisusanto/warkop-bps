@@ -4,6 +4,7 @@ import { Tabs } from "flowbite";
 import type { TabsOptions, TabsInterface, TabItem } from "flowbite";
 import poster from '@/public/img/Thumbnail Kursus 1 Small.png';
 import axios from "axios";
+import Link from "next/link";
 
 /* eslint-disable @next/next/no-img-element */
 export default function Pengumuman() {
@@ -36,15 +37,21 @@ export default function Pengumuman() {
         const tabs: TabsInterface = new Tabs(tabElements, options);
 
         const getAnnouncement=async()=>{
-            setIsLoading(true);
-            try{
-                const response = await axios.get('/api/getpengumuman');
-                console.log(response.data);
-                setData(response.data);
-            }catch(error){
-                console.log(error)
-            }finally{
-                setIsLoading(false);
+            if(!sessionStorage.getItem('pengumuman')){
+                setIsLoading(true);
+                try{
+                    const response = await axios.get('/api/getpengumuman');
+                    const sliced = response.data.slice(0,3);
+                    setData(sliced);
+                    sessionStorage.setItem('pengumuman',JSON.stringify(response.data));
+                }catch(error){
+                    console.log(error)
+                }finally{
+                    setIsLoading(false);
+                }
+            }else{
+                const sliced = JSON.parse(sessionStorage.getItem('pengumuman') || '{}').slice(0,3);
+                setData(sliced);
             }
         }
         getAnnouncement();
@@ -108,12 +115,12 @@ export default function Pengumuman() {
                                     <div key={item.id} className="w-full lg:w-1/3 px-4">
                                         <div className="bg-white rounded-lg shadow-md mb-10 p-3 hover:shadow-lg transition duration-300">
                                             <img src={item.poster} alt="buat akun" className='mx-auto'/>
-                                            <div className="mt-2 lg:h-[24vh] overflow-y-hidden">
+                                            <div className="mt-2 h-[24vh] overflow-y-hidden">
                                                 <p className="font-semibold text-sm text-gray-400 my-1">{item.waktu}</p>
                                                 <p className="font-bold text-secondaryBrown text-lg ">{item.judul}</p>
                                                 <span className="text-gray-400 font-medium text-[14px] my-1">{item.isi}</span>
                                             </div>
-                                                <p className="text-primary font-semibold"><a href="#">Lihat Selengkapnya...</a></p>
+                                                <p className="text-primary font-semibold"><Link href={`/pengumuman/${item.id}`}>Lihat Selengkapnya...</Link></p>
                                         </div>
                                     </div>
                                 ))}
