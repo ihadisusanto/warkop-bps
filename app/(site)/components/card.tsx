@@ -5,7 +5,7 @@ import iconSertifikat from '@/public/asset/Icon Sertifikat Digital.png';
 /* eslint-disable @next/next/no-img-element */
 export default function Card(){
     return(
-        <div className="container bg-base lg:px-32 text-secondaryBrown">
+        <div className="container bg-base xl:px-32 text-secondaryBrown">
             <h3 className="text-secondaryBrown font-bold text-center lg:text-3xl lg:pt-8 text-xl mb-14">Bagaimana Cara Menggunakan Warkop?</h3>
             <div className='flex flex-wrap'>
                 <div className="w-full lg:w-1/4 px-4">

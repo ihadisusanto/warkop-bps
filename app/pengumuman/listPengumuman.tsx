@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import LoadingPengumuman from './component/loadingPengumuman';
 import BoxPengumuman from "./component/boxPengumuman";
+import clsx from "clsx";
 
 export default function ListPengumuman(){
     const [isLoading, setIsLoading] = useState(false);
@@ -91,7 +92,7 @@ export default function ListPengumuman(){
                         <label htmlFor="terlama" className="text-secondaryBrown text-sm lg:text-lg">Terlama</label>
                     </div>
                 </div>
-                <div className="w-full mt-2 lg:mt-0 lg:w-3/4 lg:flex lg:flex-wrap justify-center">
+                <div  className={clsx("w-full mt-2 lg:mt-0 lg:w-3/4 lg:flex lg:flex-wrap",searchData.length==0 && "justify-center")}>
                     {isLoading ? (
                         <LoadingPengumuman/>
                     ) : (

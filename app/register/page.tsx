@@ -22,6 +22,24 @@ export default function Register(){
     const [openOffice, setOpenOffice] = useState(false);
     const [openWork, setOpenWork] = useState(false);
 
+    //handleSubmit Function
+    function handleSubmit(e:any){
+        e.preventDefault();
+        const data = {
+            nama_depan:e.target.nama_depan.value,
+            nama_belakang:e.target.nama_belakang.value,
+            username:e.target.username.value,
+            password:e.target.password.value,
+            confpassword:e.target.confpassword.value,
+            email:e.target.email.value,
+            jenis_kelamin:selectedSex,
+            pendidikan_terakhir:selectedGrade,
+            nik:e.target.nik.value,
+            kementrian_lembaga:selectedOffice,
+            unit_kerja:selectedWork
+        }
+
+    }
     return (
         <div>
             <Header/>
@@ -40,35 +58,35 @@ export default function Register(){
                         </li>
                     </ul>
                 </div>
-                <form className="w-full md:w-3/4">
+                <form className="w-full md:w-3/4" onSubmit={handleSubmit}>
                     <div id="info-public" className="bg-white px-7 md:px-14 py-8 rounded-md mb-8 shadow-md border border-gray-100 scroll-mt-32">
                         <h1 className="text-xl md:text-2xl uppercase font-bold text-gray-600 mb-8">Informasi Umum</h1>
                         <div className="space-y-4">
                             <div className="flex justify-between space-x-7 md:space-x-14">
                                 <div className="w-1/2 space-y-2">
                                     <label className="font-semibold text-sm md:text-[16px]">Nama Depan</label><br />
-                                    <input type="text" placeholder="Nama Depan" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <input required type="text" name="nama_depan" id="nama_depan" placeholder="Nama Depan" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
                                 </div>
                                 <div className="w-1/2 space-y-2">
                                     <label className="font-semibold text-sm md:text-[16px]">Nama Belakang</label><br />
-                                    <input type="text" placeholder="Nama Belakang" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <input required type="text" name="nama_belakang" id="nama_belakang" placeholder="Nama Belakang" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
                                 </div>
                             </div>
                             <div className="w-full space-y-2">
                                     <label className="font-semibold text-sm md:text-[16px]">Nama Pengguna</label><br />
-                                    <input type="text" placeholder="Nama Pengguna" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <input required type="text" name="username" id="username" placeholder="Nama Pengguna" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
                             </div>
                             <div className="w-full space-y-2">
                                     <label className="font-semibold text-sm md:text-[16px]">Kata Sandi</label><br />
-                                    <input type="password" placeholder="*Kata sandi setidaknya memiliki 5 karakter" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <input required type="password" name="password" id="password" placeholder="*Kata sandi setidaknya memiliki 5 karakter" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
                             </div>
                             <div className="w-full space-y-2">
                                     <label className="font-semibold text-sm md:text-[16px]">Konfirmasi Kata Sandi</label><br />
-                                    <input type="password" placeholder="*Kata sandi setidaknya memiliki 5 karakter" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <input required type="password" name="confpassword" id="confpassword" placeholder="*Kata sandi setidaknya memiliki 5 karakter" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
                             </div>
                             <div className="w-full space-y-2">
-                                    <label className="font-semibold text-sm md:text-[16px]">Alamat Surel</label><br />
-                                    <input type="email" placeholder="alamatsurel@gmail.com" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <label className="font-semibold text-sm md:text-[16px]">Alamat Surel (Email)</label><br />
+                                    <input required type="email" name="email" id="email" placeholder="alamatsurel@gmail.com" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
                             </div>
                         </div>
                     </div>
@@ -83,8 +101,8 @@ export default function Register(){
                                     {openSex ? <img src={arrowUp.src} alt="" className="inline" /> : <img src={arrowDown.src} alt="" className="inline" />}
                                 </div>
                                 <ul onClick={() => setOpenSex(!openSex)} className={`bg-white mt-2 shadow-md rounded-md border-gray-100 border ${openSex ? 'absolute w-full z-10' : 'hidden'}`}>
-                                    {linkSex.map((linkSex) => (
-                                        <li onClick={() => {setSelectedSex(linkSex);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedSex==linkSex ? 'text-primary border-l-4 border-primary' : ''}`}>
+                                    {linkSex.map((linkSex,index) => (
+                                        <li key={index} onClick={() => {setSelectedSex(linkSex);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedSex==linkSex ? 'text-primary border-l-4 border-primary' : ''}`}>
                                             {linkSex}
                                         </li>
                                     ))}
@@ -97,8 +115,8 @@ export default function Register(){
                                     {openGrade ? <img src={arrowUp.src} alt="" className="inline" /> : <img src={arrowDown.src} alt="" className="inline" />}
                                 </div>
                                 <ul onClick={() => setOpenGrade(!openGrade)} className={`bg-white mt-2 shadow-md rounded-md border-gray-100 border ${openGrade ? 'absolute w-full z-10' : 'hidden'}`}>
-                                    {linkGrade.map((linkGrade) => (
-                                        <li onClick={() => {setSelectedGrade(linkGrade);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedGrade==linkGrade ? 'text-primary border-l-4 border-primary' : ''}`}>
+                                    {linkGrade.map((linkGrade,index) => (
+                                        <li key={index} onClick={() => {setSelectedGrade(linkGrade);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedGrade==linkGrade ? 'text-primary border-l-4 border-primary' : ''}`}>
                                             {linkGrade}
                                         </li>
                                     ))}
@@ -112,7 +130,7 @@ export default function Register(){
                         <div className="space-y-4">
                             <div className="w-full space-y-2 text-sm md:text-[16px]">
                                     <label className="font-semibold">NIK</label><br />
-                                    <input type="text" placeholder="Nomor Induk Kependudukan" className="bg-gray-100 font-normal rounded-md w-full p-2 text-sm md:text-[16px]"/>
+                                    <input required type="text" id="nik" name="nik" placeholder="Nomor Induk Kependudukan" className="bg-gray-100 font-normal rounded-md w-full p-2 text-sm md:text-[16px]"/>
                             </div>
                             <div className="relative w-full space-y-2 text-sm md:text-[16px]">
                                     <label className="font-semibold">Kementrian/Lembaga Non BPS</label><br />
@@ -121,8 +139,8 @@ export default function Register(){
                                         {openOffice ? <img src={arrowUp.src} alt="" className="inline" /> : <img src={arrowDown.src} alt="" className="inline" />}
                                     </div>
                                     <ul onClick={() => setOpenOffice(!openOffice)} className={`bg-white mt-2 shadow-md rounded-md border-gray-100 border ${openOffice ? 'absolute w-full z-10' : 'hidden'}`}>
-                                        {linkOffice.map((linkOffice) => (
-                                            <li onClick={() => {setSelectedOffice(linkOffice);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedOffice==linkOffice ? 'text-primary border-l-4 border-primary' : ''}`}>
+                                        {linkOffice.map((linkOffice,index) => (
+                                            <li key={index} onClick={() => {setSelectedOffice(linkOffice);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedOffice==linkOffice ? 'text-primary border-l-4 border-primary' : ''}`}>
                                                 {linkOffice}
                                             </li>
                                         ))}
@@ -135,8 +153,8 @@ export default function Register(){
                                         {openWork ? <img src={arrowUp.src} alt="" className="inline" /> : <img src={arrowDown.src} alt="" className="inline" />}
                                     </div>
                                     <ul onClick={() => setOpenWork(!openWork)} className={`bg-white mt-2 shadow-md rounded-md border-gray-100 border ${openWork ? 'absolute w-full z-10' : 'hidden'}`}>
-                                        {linkWork.map((linkWork) => (
-                                            <li onClick={() => {setSelectedWork(linkWork);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedWork==linkWork ? 'text-primary border-l-4 border-primary' : ''}`}>
+                                        {linkWork.map((linkWork,index) => (
+                                            <li key={index} onClick={() => {setSelectedWork(linkWork);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedWork==linkWork ? 'text-primary border-l-4 border-primary' : ''}`}>
                                                 {linkWork}
                                             </li>
                                         ))}
