@@ -20,6 +20,7 @@ export async function POST(request:Request) {
                 return new NextResponse('Email atau Password salah',{status:400});
             }
         }
+        prisma.$disconnect();
     }catch(err:any){
         if(err  instanceof Prisma.PrismaClientKnownRequestError){
             if(err.code === "P2001"){
