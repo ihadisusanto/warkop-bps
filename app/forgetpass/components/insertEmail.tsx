@@ -61,10 +61,10 @@ const insertEmail = () =>{
                             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg aria-hidden="true" className="w-5 mb-6 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
                             </div>
-                            <input onChange={listenEvent} type="email" id="email-address-icon" className="bg-gray-50 border border-gray-300 text-secondaryBrown text-sm rounded-lg focus:ring-2 focus:ring-secondaryBrown focus:outline-none block w-full pl-10 p-2.5 transition duration-300 invalid:text-red-700 invalid:focus:ring-red-700 invalid:focus:border-red-700 peer" placeholder="Masukkan alamat surel"/>
-                            <p className="text-sm m-1 text-red-700 invisible peer-invalid:visible">Invalid email</p>
+                            <input onChange={listenEvent} type="email" id="email-address-icon" className="bg-gray-200 border-none text-secondaryBrown text-sm rounded-lg focus:ring-2 focus:ring-secondaryBrown focus:outline-none block w-full pl-10 p-2.5 transition duration-300 invalid:text-red-700 invalid:focus:ring-red-700 invalid:focus:border-red-700 peer" placeholder="Masukkan alamat surel"/>
+                            <p className="text-sm mt-1 text-red-700 invisible peer-invalid:visible">Invalid email</p>
                         </div>
-                        <div className="relative my-5 w-full lg:w-2/3 mx-auto">
+                        <div className="relative my-2 w-full lg:w-2/3 mx-auto">
                             <button type="button" id="emailCatcher" data-modal-target="popup-modal" data-modal-toggle="popup-modal" className="bg-primary text-lg font-semibold text-slate-100 text-center hover:shadow-lg rounded-lg w-full py-2 transition duration-500">Kirim</button>
                         </div>
                     </form>

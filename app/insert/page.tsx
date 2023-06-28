@@ -6,7 +6,7 @@ export default function insert() {
     return(
         <>
         <Header/>
-        <InsertAnnounce/>
+        <InsertClass/>
         <Footer1st/>
         </>
     )

@@ -1,11 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
-/* eslint-disable react/jsx-key */
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/header/page"
 import arrowDown from "@/public/asset/Arrow Down.png";
 import arrowUp from "@/public/asset/Arrow Up.png";
 import Footer1st from "../components/footer1st/page";
+import axios from "axios";
+import { toast } from "react-hot-toast";
+import { useRouter } from 'next/navigation';
+import { MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
+import { notifications } from '@mantine/notifications';
 
 const linkSex = ["Laki-laki", "Perempuan"]
 const linkGrade = ["SD/Sederajat", "SMP/Sederajat", "SMA/Sederajat", "Diploma I/II/III", "Diploma IV/S1/S2/S3"]
@@ -13,6 +18,20 @@ const linkOffice = ["Dewan Perwakilan Rakyat", "Badan Informasi Geospasial", "Ke
 const linkWork = ["Biro Bina Program", "Pusat Pendidikan dan Pelatihan", "Politeknik Statistika STIS", "Direktorat Sistem Informasi Statistik", "BPS Provinsi DKI Jakarta"]
 
 export default function Register(){
+    interface Data {
+        nama_depan: string;
+        nama_belakang: string;
+        username: string;
+        password: string;
+        confpassword: string;
+        email: string;
+        gender: string;
+        education: string;
+        nik: string;
+        lembaga: string;
+        unit_kerja: string;
+    }
+
     const [selectedSex, setSelectedSex] = useState("");
     const [selectedGrade, setSelectedGrade] = useState("");
     const [selectedOffice, setSelectedOffice] = useState("");
@@ -23,26 +42,262 @@ export default function Register(){
     const [openWork, setOpenWork] = useState(false);
     const [textOffice, setTextOffice] = useState(false);
     const [textWork, setTextWork] = useState(false);
+    
+    //error message in filed
+    const [errorFirstName, setErrorFirstName] = useState("");
+    const [errorLastName, setErrorLastName] = useState("");
+    const [errorUsername, setErrorUsername] = useState("");
+    const [errorPassword, setErrorPassword] = useState("");
+    const [errorConfPassword, setErrorConfPassword] = useState("");
+    const [errorEmail, setErrorEmail] = useState("");
+    const [errorGender, setErrorGender] = useState("");
+    const [errorEducation, setErrorEducation] = useState("");
+    const [errorNik, setErrorNik] = useState("");
+    const [errorLembaga, setErrorLembaga] = useState("");
+    const [errorUnitKerja, setErrorUnitKerja] = useState("");
 
-    //handleSubmit Function
+    useEffect(()=>{
+        sessionStorage.setItem("errorFirstName","");
+        sessionStorage.setItem("errorLastName","");
+        sessionStorage.setItem("errorUsername","");
+        sessionStorage.setItem("errorPassword","");
+        sessionStorage.setItem("errorConfPassword","");
+        sessionStorage.setItem("errorEmail","");
+        sessionStorage.setItem("errorGender","");
+        sessionStorage.setItem("errorEducation","");
+        sessionStorage.setItem("errorNik","");
+        sessionStorage.setItem("errorLembaga","");
+        sessionStorage.setItem("errorUnitKerja","");
+        window.location.href="#info-public";
+    })
+
+    const [isLoading,setIsLoading] = useState(false);
+    const router = useRouter();
+    //handle submit function
     function handleSubmit(e:any){
+        setIsLoading(true);
         e.preventDefault();
-        const data = {
+        const data :Data = {
             nama_depan:e.target.nama_depan.value,
             nama_belakang:e.target.nama_belakang.value,
             username:e.target.username.value,
             password:e.target.password.value,
             confpassword:e.target.confpassword.value,
             email:e.target.email.value,
-            jenis_kelamin:selectedSex,
-            pendidikan_terakhir:selectedGrade,
+            gender:selectedSex,
+            education:selectedGrade,
             nik:e.target.nik.value,
-            kementrian_lembaga:selectedOffice,
+            lembaga:selectedOffice,
             unit_kerja:selectedWork
         }
+        if(selectedOffice == ""){
+            data.lembaga = e.target.textKementrian.value
+        }
 
+        if(selectedWork == ""){
+            data.unit_kerja = e.target.textWork.value
+        }
+        
+        
+        validation(data);
+        console.log(sessionStorage.getItem("errorFirstName"))
+        if(sessionStorage.getItem("errorFirstName")=="" && sessionStorage.getItem("errorLastName")=="" && sessionStorage.getItem("errorUsername")=="" && sessionStorage.getItem("errorPassword")=="" && sessionStorage.getItem("errorConfPassword")=="" && sessionStorage.getItem("errorEmail")=="" && sessionStorage.getItem("errorGender")=="" && sessionStorage.getItem("errorEducation")=="" && sessionStorage.getItem("errorNik")=="" && sessionStorage.getItem("errorLembaga")=="" && sessionStorage.getItem("errorUnitKerja")==""){
+            //axios post
+            axios.post('/api/register', data)
+            .then((res)=>{
+                console.log(res.data)
+                notifications.show({
+                    autoClose:3000,
+                    withCloseButton:true,
+                    title: 'Berhasil',
+                    message: 'Akun berhasil dibuat. Menuju halaman login dalam 3 detik',
+                    color: 'green',
+                })
+                setTimeout(() => {
+                    router.push("/login");
+                }, 3000)
+            })
+            .catch((err)=>{
+                setErrorEmail(err.response.data);
+                window.location.href="#info-public"
+                notifications.show({
+                    autoClose:3000,
+                    withCloseButton:true,
+                    title: 'Terjadi kesalahan',
+                    message: 'Alamat Email Sudah Digunakan',
+                    color: 'red',
+                })
+            })
+            .finally(()=>setIsLoading(false));
+        }else{
+            setIsLoading(false);
+            notifications.show({
+                title:"Terjadi Kesalahan",
+                message:"Silakan periksa kembali kolom yang anda isikan",
+                color:"red",
+                autoClose:8000,
+                withCloseButton:true
+            })
+        }
     }
+
+    const validation = (data:Data)=>{
+        //validation first name
+        if(data.nama_depan===""){
+            setErrorFirstName("Nama Depan tidak boleh kosong");
+            sessionStorage.setItem("errorFirstName","Nama Depan tidak boleh kosong");
+            setIsLoading(false);
+        }else{
+            setErrorFirstName("");
+            sessionStorage.setItem("errorFirstName","");
+        }
+
+        //validation last name
+        if(data.nama_belakang===""){
+            setErrorLastName("Nama Belakang tidak boleh kosong");
+            sessionStorage.setItem("errorLastName","Nama Belakang tidak boleh kosong");
+            setIsLoading(false);
+        }else{
+            setErrorLastName("");
+            sessionStorage.setItem("errorLastName","");
+        }
+
+        //validation username
+        if(data.username===""){
+            setErrorUsername("Nama Pengguna tidak boleh kosong");
+            sessionStorage.setItem("errorUsername","Nama Pengguna tidak boleh kosong");
+            setIsLoading(false);
+        }else{
+            setErrorUsername("");
+            sessionStorage.setItem("errorUsername","");
+        }
+
+        //validation password
+        if(data.password===""){
+            setErrorPassword("Kata Sandi tidak boleh kosong");
+            sessionStorage.setItem("errorPassword","Kata Sandi tidak boleh kosong");
+            setIsLoading(false);
+        }else{
+            setErrorPassword("");
+            sessionStorage.setItem("errorPassword","");
+        }
+
+        //validation confpassword
+        if(data.confpassword===""){
+            setErrorConfPassword("Konfirmasi Kata Sandi tidak boleh kosong");
+            sessionStorage.setItem("errorConfPassword","Konfirmasi Kata Sandi tidak boleh kosong");
+            setIsLoading(false);
+        }else{
+            setErrorConfPassword("");
+            sessionStorage.setItem("errorConfPassword","");
+        }
+
+        //validation email
+        if(data.email===""){
+            setErrorEmail("Alamat Surel tidak boleh kosong");
+            sessionStorage.setItem("errorEmail","Alamat Surel tidak boleh kosong");
+            setIsLoading(false);
+        }else{
+            setErrorEmail("");
+            sessionStorage.setItem("errorEmail","");
+        }
+
+        //validation gender
+        if(data.gender===""){
+            setErrorGender("Isikan jenis kelamin ada");
+            sessionStorage.setItem("errorGender","Isikan jenis kelamin ada");
+            setIsLoading(false);
+        }else{
+            setErrorGender("");
+            sessionStorage.setItem("errorGender","");
+        }
+
+        //validation education
+        if(data.education===""){
+            setErrorEducation("Kolom pendidikan terakhir tidak boleh kosong");
+            sessionStorage.setItem("errorEducation","Kolom pendidikan terakhir tidak boleh kosong");
+            setIsLoading(false);
+        }else{
+            setErrorEducation("");
+            sessionStorage.setItem("errorEducation","");
+        }
+
+        //validation nik
+        if(data.nik===""){
+            setErrorNik("NIK tidak boleh kosong");
+            sessionStorage.setItem("errorNik","NIK tidak boleh kosong");
+            setIsLoading(false);
+        }else{
+            setErrorNik("");
+            sessionStorage.setItem("errorNik","");
+        }
+
+        //validation lembaga
+        if(data.lembaga===""){
+            setErrorLembaga("Kolom Instansi tidak boleh kosong");
+            sessionStorage.setItem("errorLembaga","Kolom Instansi tidak boleh kosong");
+            setIsLoading(false);
+        }else{
+            setErrorLembaga("");
+            sessionStorage.setItem("errorLembaga","");
+        }
+
+        //validation unit kerja
+        if(data.unit_kerja===""){
+            setErrorUnitKerja("Kolom Unit Kerja tidak boleh kosong");
+            sessionStorage.setItem("errorUnitKerja","Kolom Unit Kerja tidak boleh kosong");
+            setIsLoading(false);
+        }else{
+            setErrorUnitKerja("");
+            sessionStorage.setItem("errorUnitKerja","");
+        }
+
+        //password tidak cocok
+        if(data.password != data.confpassword){
+            setErrorConfPassword("Kata sandi tidak cocok");
+            sessionStorage.setItem("errorConfPassword","Kata sandi tidak cocok");
+            setIsLoading(false);
+        }else{
+            setErrorConfPassword("");
+            sessionStorage.setItem("errorConfPassword","");
+        }
+
+        //password kurang dari 8 karakter
+        if(data.password.length < 8){
+            setErrorPassword("Kata sandi setidaknya memiliki 8 karakter");
+            sessionStorage.setItem("errorPassword","Kata sandi setidaknya memiliki 8 karakter");
+            setIsLoading(false);
+        }else{
+            setErrorPassword("");
+            sessionStorage.setItem("errorPassword","");
+        }
+
+        //email tidak valid
+        if(!data.email.includes("@")){
+            setErrorEmail("Alamat surel tidak valid");
+            sessionStorage.setItem("errorEmail","Alamat surel tidak valid");
+            setIsLoading(false);
+        }else{
+            setErrorEmail("");
+            sessionStorage.setItem("errorEmail","");
+        }
+
+        //nik tidak 16 digit
+        if(data.nik.length != 16){
+            setErrorNik("NIK harus terdiri atas 16 digit");
+            sessionStorage.setItem("errorNik","NIK harus terdiri atas 16 digit");
+            setIsLoading(false);
+        }else{
+            setErrorNik("");
+            sessionStorage.setItem("errorNik","");
+        }
+    };
+
+
+
     return (
+        <MantineProvider withNormalizeCSS withGlobalStyles>
+        <Notifications/>
         <div>
             <Header/>
             <div className="flex justify-between bg-base mt-24 py-14 px-4 md:px-8">
@@ -67,28 +322,36 @@ export default function Register(){
                             <div className="flex justify-between space-x-7 md:space-x-14">
                                 <div className="w-1/2 space-y-2">
                                     <label className="font-semibold text-sm md:text-[16px]">Nama Depan</label><br />
-                                    <input type="text" placeholder="Nama Depan" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <input type="text" id="nama_depan" name="nama_depan" placeholder="Nama Depan" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2 border-none focus:ring-secondaryBrown focus:ring-2 transition duration-300"/>
+                                    {/* {error.filter((err) => err.type == "nama_depan") && (<p className="mt-1 text-red-700 text-sm font-semibold">{error.filter((err) => err.type == "nama_depan")[0]["message"]}</p>)} */}
+                                    {errorFirstName!==""  && (<p className="mt-1 text-red-700 text-sm font-semibold">{errorFirstName}</p>)}
                                 </div>
                                 <div className="w-1/2 space-y-2">
                                     <label className="font-semibold text-sm md:text-[16px]">Nama Belakang</label><br />
-                                    <input type="text" placeholder="Nama Belakang" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <input type="text" id="nama_belakang" name="nama_belakang" placeholder="Nama Belakang" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2 border-none focus:ring-secondaryBrown focus:ring-2 transition duration-300"/>
+                                    {/* {error.filter((err) => err.type == "nama_belakang") && (<p className="mt-1 text-red-700 text-sm font-semibold">{error.filter((err) => err.type == "nama_belakang")[0]["message"]}</p>)} */}
+                                    {errorLastName!==""  && (<p className="mt-1 text-red-700 text-sm font-semibold">{errorLastName}</p>)}
                                 </div>
                             </div>
                             <div className="w-full space-y-2">
                                     <label className="font-semibold text-sm md:text-[16px]">Nama Pengguna</label><br />
-                                    <input type="text" placeholder="Nama Pengguna" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <input type="text" id="username" name="username" placeholder="Nama Pengguna" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2 border-none focus:ring-secondaryBrown focus:ring-2 transition duration-300"/>
+                                    {errorUsername!==""  && (<p className="mt-1 text-red-700 text-sm font-semibold">{errorUsername}</p>)}
                             </div>
                             <div className="w-full space-y-2">
                                     <label className="font-semibold text-sm md:text-[16px]">Kata Sandi</label><br />
-                                    <input type="password" placeholder="*Kata sandi setidaknya memiliki 5 karakter" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <input type="password" id="password" name="password" placeholder="Kata sandi setidaknya memiliki 8 karakter" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2 border-none focus:ring-secondaryBrown focus:ring-2 transition duration-300"/>
+                                    {errorPassword!==""  && (<p className="mt-1 text-red-700 text-sm font-semibold">{errorPassword}</p>)}
                             </div>
                             <div className="w-full space-y-2">
                                     <label className="font-semibold text-sm md:text-[16px]">Konfirmasi Kata Sandi</label><br />
-                                    <input type="password" placeholder="*Kata sandi setidaknya memiliki 5 karakter" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <input type="password" id="confpassword" name="confpassword" placeholder="Kata sandi setidaknya memiliki 8 karakter" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2 border-none focus:ring-secondaryBrown focus:ring-2 transition duration-300"/>
+                                    {errorConfPassword!==""  && (<p className="mt-1 text-red-700 text-sm font-semibold">{errorConfPassword}</p>)}
                             </div>
                             <div className="w-full space-y-2">
                                     <label className="font-semibold text-sm md:text-[16px]">Alamat Surel</label><br />
-                                    <input type="email" placeholder="alamatsurel@gmail.com" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2"/>
+                                    <input type="text" id="email" name="email" placeholder="alamatsurel@gmail.com" className="bg-gray-100 text-sm md:text-[16px] rounded-md w-full p-2 border-none focus:ring-secondaryBrown focus:ring-2 transition duration-300"/>
+                                    {errorEmail!==""  && (<p className="mt-1 text-red-700 text-sm font-semibold">{errorEmail}</p>)}
                             </div>
                         </div>
                     </div>
@@ -103,12 +366,13 @@ export default function Register(){
                                     {openSex ? <img src={arrowUp.src} alt="" className="inline" /> : <img src={arrowDown.src} alt="" className="inline" />}
                                 </div>
                                 <ul onClick={() => setOpenSex(!openSex)} className={`bg-white mt-2 shadow-md rounded-md border-gray-100 border ${openSex ? 'absolute w-full z-10' : 'hidden'}`}>
-                                    {linkSex.map((linkSex) => (
-                                        <li onClick={() => {setSelectedSex(linkSex);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedSex==linkSex ? 'text-primary border-l-4 border-primary' : ''}`}>
+                                    {linkSex.map((linkSex,index) => (
+                                        <li key={index} onClick={() => {setSelectedSex(linkSex);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedSex==linkSex ? 'text-primary border-l-4 border-primary' : ''}`}>
                                             {linkSex}
                                         </li>
                                     ))}
                                 </ul>
+                                {errorGender!==""  && (<p className="mt-1 text-red-700 text-sm font-semibold">{errorGender}</p>)}
                             </div>
                             <div className="relative w-full lg:w-1/2 space-y-2 text-sm md:text-[16px]">
                                 <label className="font-semibold">Pendidikan Terakhir</label><br />
@@ -117,12 +381,13 @@ export default function Register(){
                                     {openGrade ? <img src={arrowUp.src} alt="" className="inline" /> : <img src={arrowDown.src} alt="" className="inline" />}
                                 </div>
                                 <ul onClick={() => setOpenGrade(!openGrade)} className={`bg-white mt-2 shadow-md rounded-md border-gray-100 border ${openGrade ? 'absolute w-full z-10' : 'hidden'}`}>
-                                    {linkGrade.map((linkGrade) => (
-                                        <li onClick={() => {setSelectedGrade(linkGrade);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedGrade==linkGrade ? 'text-primary border-l-4 border-primary' : ''}`}>
+                                    {linkGrade.map((linkGrade,index) => (
+                                        <li key={index} onClick={() => {setSelectedGrade(linkGrade);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedGrade==linkGrade ? 'text-primary border-l-4 border-primary' : ''}`}>
                                             {linkGrade}
                                         </li>
                                     ))}
                                 </ul>
+                                {errorEducation!==""  && (<p className="mt-1 text-red-700 text-sm font-semibold">{errorEducation}</p>)}
                             </div>
                         </div>
                     </div>
@@ -132,14 +397,15 @@ export default function Register(){
                         <div className="space-y-4">
                             <div className="w-full space-y-2 text-sm md:text-[16px]">
                                     <label className="font-semibold">NIK</label><br />
-                                    <input required type="text" id="nik" name="nik" placeholder="Nomor Induk Kependudukan" className="bg-gray-100 font-normal rounded-md w-full p-2 text-sm md:text-[16px]"/>
+                                    <input type="text" id="nik" name="nik" placeholder="Nomor Induk Kependudukan" className="bg-gray-100 font-normal rounded-md w-full p-2 text-sm md:text-[16px] border-none focus:ring-secondaryBrown focus:ring-2 transition duration-300"/>
+                                    {errorNik!==""  && (<p className="mt-1 text-red-700 text-sm font-semibold">{errorNik}</p>)}
                             </div>
                             <div className="relative w-full space-y-2">
                                     <label className="font-semibold">Kementrian/Lembaga Non BPS</label><br />
                                     <div className={`relative bg-gray-100 flex justify-between items-center rounded-md ${textOffice ? '' : 'hidden'}`}>
                                         {textOffice
-                                            ? <input type="text" className={`bg-gray-100 w-full text-gray-500 border-none rounded-md`}/>
-                                            : <input value={""} type="text" className={`bg-gray-100 w-full text-gray-500 border-none rounded-md`}/>
+                                            ? (<input type="text" id="textKementrian" placeholder="Isikan nama instansi anda" name="textKementrian" className={`bg-gray-100 w-full text-gray-500 border-none rounded-md`}/>)
+                                            : (<input type="text" defaultValue={""} id="textKementrian" name="textKementrian" className={`bg-gray-100 w-full text-gray-500 border-none rounded-md hidden`}/>)
                                         }
                                         <div onClick={() => {setTextOffice(!textOffice); setOpenOffice(!openOffice)}} className="py-2 px-4 cursor-pointer">
                                             <img src={arrowDown.src} alt="" className="inline" />
@@ -150,8 +416,8 @@ export default function Register(){
                                         {openOffice ? <img src={arrowUp.src} alt="" className="inline" /> : <img src={arrowDown.src} alt="" className="inline" />}
                                     </div>
                                     <ul onClick={() => setOpenOffice(!openOffice)} className={`bg-white mt-2 shadow-md rounded-md border-gray-100 border ${openOffice ? 'absolute w-full z-10' : 'hidden'}`}>
-                                        {linkOffice.map((linkOffice) => (
-                                            <li onClick={() => {setSelectedOffice(linkOffice);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedOffice==linkOffice ? 'text-primary border-l-4 border-primary' : ''}`}>
+                                        {linkOffice.map((linkOffice,index) => (
+                                            <li key={index} onClick={() => {setSelectedOffice(linkOffice);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedOffice==linkOffice ? 'text-primary border-l-4 border-primary' : ''}`}>
                                                 {linkOffice}
                                             </li>
                                         ))}
@@ -159,13 +425,14 @@ export default function Register(){
                                             Lainnya...
                                         </li>
                                     </ul>
+                                    {errorLembaga!==""  && (<p className="mt-1 text-red-700 text-sm font-semibold">{errorLembaga}</p>)}
                             </div>
                             <div className="relative w-full space-y-2">
                                     <label className="font-semibold">Unit Kerja</label><br />
                                     <div className={`relative bg-gray-100 flex justify-between items-center rounded-md ${textWork ? '' : 'hidden'}`}>
                                         {textWork
-                                            ? <input type="text" className={`bg-gray-100 w-full text-gray-500 border-none rounded-md`}/>
-                                            : <input value={""} type="text" className={`bg-gray-100 w-full text-gray-500 border-none rounded-md`}/>
+                                            ? (<input type="text" id="textWork" name="textWork" placeholder="Isikan unit kerja anda" className={`bg-gray-100 w-full text-gray-500 border-none rounded-md`}/>)
+                                            : (<input type="text" defaultValue={""} id="textWork" name="textWork" className={`bg-gray-100 w-full text-gray-500 border-none rounded-md hidden`}/>)
                                         }
                                         <div onClick={() => {setTextWork(!textWork); setOpenWork(!openWork);}} className="py-2 px-4 cursor-pointer">
                                             <img src={arrowDown.src} alt="" className="inline" />
@@ -176,8 +443,8 @@ export default function Register(){
                                         {openWork ? <img src={arrowUp.src} alt="" className="inline" /> : <img src={arrowDown.src} alt="" className="inline" />}
                                     </div>
                                     <ul onClick={() => setOpenWork(!openWork)} className={`bg-white mt-2 shadow-md rounded-md border-gray-100 border ${openWork ? 'absolute w-full z-10' : 'hidden'}`}>
-                                        {linkWork.map((linkWork) => (
-                                            <li onClick={() => {setSelectedWork(linkWork);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedWork==linkWork ? 'text-primary border-l-4 border-primary' : ''}`}>
+                                        {linkWork.map((linkWork,index) => (
+                                            <li key={index} onClick={() => {setSelectedWork(linkWork);}} className={`hover:bg-yellow-50 p-2 rounded-md ${selectedWork==linkWork ? 'text-primary border-l-4 border-primary' : ''}`}>
                                                 {linkWork}
                                             </li>
                                         ))}
@@ -185,18 +452,20 @@ export default function Register(){
                                             Lainnya...
                                         </li>
                                     </ul>
+                                    {errorUnitKerja!==""  && (<p className="mt-1 text-red-700 text-sm font-semibold">{errorUnitKerja}</p>)}
                             </div>
                         </div>
                     </div>
 
                     <div className="w-full flex justify-end items-end mb-4 ">
-                        <button type="submit" className="bg-primary text-gray-600 font-bold text-xl py-3 px-8 md:px-16 rounded-sm shadow-md">
-                            Buat Akun
+                        <button type="submit" className={`bg-primary text-gray-600 font-bold text-xl py-3 px-8 md:px-16 rounded-sm shadow-md ${isLoading ? 'disabled opacity-50' : ''}`}>
+                            {isLoading ? 'Sedang Memproses...' : 'Daftar'}
                         </button>
                     </div>
                 </form>
             </div>
             <Footer1st/>
-        </div>                  
+        </div>
+        </MantineProvider>                  
     )
 }

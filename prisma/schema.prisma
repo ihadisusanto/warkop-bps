@@ -22,6 +22,8 @@ model Kelas {
   message String?
   status String?
   poster String?
+  kompetensi String?
+  subKompetensi String?
 }
 
 model Pengumuman {
