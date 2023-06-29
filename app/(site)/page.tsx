@@ -5,6 +5,7 @@ import Header from "../components/header/page"
 import Card from "./components/card"
 import Video from "./components/video"
 import Pengumuman from "./components/pengumuman"
+import Kelas from "./components/kelas"
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
     </div>
     <Video/>
     <Card/>
+    <Kelas/>
     <Pengumuman/>
     <Footer2nd/>
     <Footer1st/>
