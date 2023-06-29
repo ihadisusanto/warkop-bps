@@ -50,7 +50,7 @@ export default function login(){
                     title: 'Terjadi Kesalahan',
                     message: 'Email atau Password salah',
                     color: "red",
-                    autoClose:false
+                    autoClose:7000
                 })
             })
             .finally(()=>{
