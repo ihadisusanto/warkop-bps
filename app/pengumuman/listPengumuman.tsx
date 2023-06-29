@@ -37,8 +37,10 @@ export default function ListPengumuman(){
     const onDateSort=async(e:any)=>{
         if(e.target.value === 'terlama'){
             sortByDateOldest();
+            console.log("Terlama");
         }else{
             sortByDateLatest();
+            console.log("Terbaru")
         }
     }
 

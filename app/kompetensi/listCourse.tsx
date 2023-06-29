@@ -87,11 +87,11 @@ export default function CompType() {
 
   return (
     <div>
-        <div className="mt-12 lg:mt-24 px-8 pt-2 pb-6">
+        <div className="mt-12 lg:mt-24 px-4 md:px-8 pt-12 lg:pt-4 pb-6">
             <h1 className="text-secondaryBrown font-bold text-5xl my-3">Daftar Menu Pembelajaran</h1>
             <p className="text-darkbrown text-justify">Warung Kompetensi Pegawai menyediakan berbagai Menu Pembelajaran yang bisa kalian ikuti. Selesaikan kelas anda dan dapatkan sertifikat kompetensi berbentuk digital</p>
         </div>
-        <div className="relative mt-4 px-4 md:px-8 pb-6 md:flex justify-between items-center space-y-4 md:space-y-0">
+        <div className="mt-4 px-4 md:px-8 pb-6 md:flex justify-between items-center space-y-8 md:space-y-0">
             <div className="relative w-full md:w-1/3 md:block hidden">
               <div onClick={() => setOpenCompts(!openCompts)} className="bg-gray-100 flex justify-between items-center w-full rounded-md cursor-pointer p-3">
                 <p className="text-gray-500">Jenis Kompetensi</p>
@@ -105,9 +105,9 @@ export default function CompType() {
                   ))}
               </ul>
             </div>
-            <form id="searchID" className="w-full md:w-2/5 md:flex justify-between items-center md:space-x-2 space-y-2 md:space-y-0">
+            <form className="w-full md:w-2/5 md:flex justify-between items-center md:space-x-2 space-y-2 md:space-y-0">
               <input type="text" className="p-3 bg-gray-100 w-full border-none rounded-md focus:ring-secondaryBrown" placeholder="Cari Menu Pembelajaran"/>
-              <button onClick={searchAnnounce} className="bg-primary text-secondaryBrown py-3 px-7 w-full md:w-1/5 rounded-md font-semibold text-center">Cari</button>
+              <button onClick={searchAnnounce} className="bg-primary text-secondaryBrown py-3 w-full md:w-1/4 rounded-md font-semibold text-center">Cari</button>
             </form>
             <div className="relative w-full md:w-1/3 md:hidden block">
               <div onClick={() => setOpenCompts(!openCompts)} className="bg-gray-100 flex justify-between items-center w-full rounded-md cursor-pointer p-3">
@@ -123,8 +123,8 @@ export default function CompType() {
               </ul>
             </div>
         </div>
-        <div className="bg-base p-4 lg:flex justify-between items-start space-x-0 md:space-x-4 space-y-4 md:space-y-0">
-          <div className="w-full lg:w-1/4 border border-gray-100 shadow-md rounded-b-md">
+        <div className="bg-base p-4 md:p-8 lg:flex justify-between items-start space-x-0 lg:space-x-4 space-y-4 md:space-y-0">
+          <div className="w-full lg:w-1/4 mb-4 border border-gray-100 shadow-md rounded-b-md">
             <div className="w-full bg-primary text-secondaryBrown p-4 rounded-t-md font-bold">
               Urutkan Berdasarkan
             </div>
@@ -142,9 +142,13 @@ export default function CompType() {
                 <label htmlFor="nanti" className="hover:cursor-pointer">Akan Datang</label>
               </div>
             </div>
+
+            <div>
+                
+            </div>
           </div>
 
-          <div  className={clsx("w-full mt-2 lg:mt-0 lg:w-3/4 lg:flex lg:flex-wrap",searchData.length==0 && "justify-center")}>
+          <div  className={clsx("w-full mt-2 lg:mt-0 lg:w-3/4 lg:flex lg:flex-wrap lg:px-0",searchData.length==0 && "justify-center")}>
               {isLoading ? (
                   <LoadingPengumuman/>
               ) : (

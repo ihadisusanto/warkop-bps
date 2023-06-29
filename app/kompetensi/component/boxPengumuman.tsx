@@ -13,7 +13,7 @@ export default function boxPengumuman(data:any){
                 )
                 :
                 data.data.map((item:any)=>(
-                    <div key={item.id} className="w-full lg:w-1/3 px-4">
+                    <div key={item.id} className="w-full lg:w-1/3 lg:pl-4">
                         <div className="bg-white rounded-lg shadow-md mb-10 p-3 hover:shadow-lg transition duration-300">
                             <img src={item.poster} alt="Akun" className='mx-auto'/>
                             <div className="mt-2 h-[24vh] lg:h-[24vh] overflow-y-hidden">
