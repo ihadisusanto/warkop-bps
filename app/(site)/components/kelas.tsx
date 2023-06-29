@@ -185,7 +185,7 @@ export default function Kelas(){
                                             <div className="mt-2 h-[24vh] overflow-y-hidden">
                                                 <p className="font-bold text-secondaryBrown text-lg ">{item.judul}</p>
                                                 <p className="font-semibold text-slate-400 text-[16px] my-1">Kompetensi : {item.kompetensi}</p>
-                                                <p className="font-semibold text-slate-400 text-[16px] my-1">Jumlah Jam :{item.jumlah_jam}</p>
+                                                <p className="font-semibold text-slate-400 text-[16px] my-1">Jumlah Jam : {item.jumlah_jam}</p>
                                             </div>
                                                 <button onClick={()=>openModal(item)} className="bg-primary text-secondaryBrown justify-center font-semibold w-full p-2 rounded-lg">Selengkapnya</button>
                                         </div>
@@ -242,7 +242,7 @@ export default function Kelas(){
                                             <div className="mt-2 h-[24vh] overflow-y-hidden">
                                                 <p className="font-bold text-secondaryBrown text-lg ">{item.judul}</p>
                                                 <p className="font-semibold text-slate-400 text-[16px] my-1">Kompetensi : {item.kompetensi}</p>
-                                                <p className="font-semibold text-slate-400 text-[16px] my-1">Jumlah Jam :{item.jumlah_jam}</p>
+                                                <p className="font-semibold text-slate-400 text-[16px] my-1">Jumlah Jam : {item.jumlah_jam}</p>
                                             </div>
                                             <button onClick={()=>openModal(item)} className="bg-primary text-secondaryBrown justify-center font-semibold w-full p-2 rounded-lg">Selengkapnya</button>
                                         </div>

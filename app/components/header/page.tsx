@@ -12,15 +12,15 @@ import clsx from 'clsx';
 export default function Header({title}:any) {
     useEffect(() => {
         //navbar fixed
-        window.onscroll = function(){
-            const header = document.querySelector('header')!;
-            const fixedNav = header.offsetTop; //jarak posisi header terhadap top nya
-            if(window.scrollY > fixedNav){
-                header.classList.add('navbar-fixed');
-            }else{
-                header.classList.remove('navbar-fixed');
-            }
-        }
+        // window.onscroll = function(){
+        //     const header = document.querySelector('header')!;
+        //     const fixedNav = header.offsetTop; //jarak posisi header terhadap top nya
+        //     if(window.scrollY > fixedNav){
+        //         header.classList.add('navbar-fixed');
+        //     }else{
+        //         header.classList.remove('navbar-fixed');
+        //     }
+        // }
         
         //Hamburger
         const hamburger = document.getElementById('hamburger')!;
@@ -46,7 +46,7 @@ export default function Header({title}:any) {
     });
 
     return(
-        <header className="bg-transparent absolute w-full top-0 left-0 flex items-center z-10">
+        <header className="bg-transparent absolute w-full top-0 left-0 flex items-center">
             <div className="w-full">
                 <div className="flex items-center justify-center lg:justify-between relative">
                     <div className="flex items-center px-4">
