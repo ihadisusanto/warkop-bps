@@ -13,15 +13,19 @@ datasource db {
 model Kelas {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   judul String?
-  diklat String?
   jumlah_jam String?
   tanggal_mulai String?
   tanggal_selesai String?
+  start_date DateTime
+  end_date DateTime
   teacher String?
   manager String?
   message String?
   status String?
   poster String?
+  bigPoster String?
+  kompetensi String?
+  subKompetensi String?
 }
 
 model Pengumuman {
