@@ -83,12 +83,12 @@ export default function ListPengumuman(){
                     <div className="bg-primary p-2">
                         <p className="text-secondaryBrown font-semibold text-sm lg:text-lg">Urut Berdasarkan</p>
                     </div>
-                    <div className="p-1">
-                        <input onChange={onDateSort} type="radio" name="radio" id="terbaru" className="mx-2 checked:text-secondaryBrown checked:bg-secondaryBrown focus:ring-transparent" value="terbaru"/>
+                    <div className="mt-1 ml-2">
+                        <input onChange={onDateSort} type="radio" name="radio" id="terbaru" className="mb-1 text-primary relative mx-2 rounded-sm border-secondaryBrown checked:border-secondaryBrown checked:focus:border-secondaryBrown checked:hover:border-secondaryBrown checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:bg-primary checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer focus:ring-transparent" value="terbaru"/>
                         <label htmlFor="terbaru" className="text-secondaryBrown text-sm lg:text-lg">Terbaru</label>
                     </div>
-                    <div className="p-1">
-                        <input  onChange={onDateSort} type="radio" name="radio" id="terlama" className="mx-2 checked:text-secondaryBrown checked:bg-secondaryBrown focus:ring-transparent" value="terlama"/>
+                    <div className="ml-2">
+                        <input  onChange={onDateSort} type="radio" name="radio" id="terlama" className="mb-1 text-primary relative mx-2 rounded-sm border-secondaryBrown checked:border-secondaryBrown checked:focus:border-secondaryBrown checked:hover:border-secondaryBrown checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:bg-primary checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer focus:ring-transparent" value="terlama"/>
                         <label htmlFor="terlama" className="text-secondaryBrown text-sm lg:text-lg">Terlama</label>
                     </div>
                 </div>
