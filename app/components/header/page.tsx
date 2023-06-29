@@ -130,8 +130,8 @@ export default function Header({title}:any) {
                         <img src={warkopLogo.src} alt="Logo Warkop" className="scale-75"/>
                     </div>
                     <div className="hidden px-4 md:inline-block">
-                        <button id="loginBtn" className="bg-slate-100 text-sm text-secondaryBrown mr-4 py-3 px-5 rounded-md hover:shadow-lg transition duration-500 xl:text-base"><p className="text-secondaryBrown">Login <img src={arrowDown.src} alt="" className="inline" /></p></button>
-                        <button className="bg-primary text-secondaryBrown text-sm mr-4 py-3 px-5 rounded-md hover:shadow-lg transition duration-500 xl:text-base"><Link href="/register">Daftar</Link></button>
+                        <button id="loginBtn" className="bg-slate-100 text-sm text-secondaryBrown mr-4 py-3 px-5 rounded-md hover:shadow-lg transition duration-500 xl:text-base"><p className="text-secondaryBrown font-semibold">Masuk <img src={arrowDown.src} alt="" className="inline" /></p></button>
+                        <button className="bg-primary text-secondaryBrown text-sm mr-4 py-3 px-5 rounded-md hover:shadow-lg transition duration-500 xl:text-base"><Link href="/register" className="text-secondaryBrown font-semibold">Daftar</Link></button>
                         <div id="login-menu" className="hidden absolute bg-slate-100 shadow-lg rounded-lg max-w-[250px] w-full right-9 mt-3">
                             <ul className="block">
                                 <li className="group hover:bg-primary transition duration-300">

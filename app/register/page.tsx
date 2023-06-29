@@ -6,7 +6,6 @@ import arrowDown from "@/public/asset/Arrow Down.png";
 import arrowUp from "@/public/asset/Arrow Up.png";
 import Footer1st from "../components/footer1st/page";
 import axios from "axios";
-import { toast } from "react-hot-toast";
 import { useRouter } from 'next/navigation';
 import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
@@ -42,7 +41,7 @@ export default function Register(){
     const [openWork, setOpenWork] = useState(false);
     const [textOffice, setTextOffice] = useState(false);
     const [textWork, setTextWork] = useState(false);
-    
+
     //error message in filed
     const [errorFirstName, setErrorFirstName] = useState("");
     const [errorLastName, setErrorLastName] = useState("");
@@ -403,7 +402,7 @@ export default function Register(){
                                     <label className="font-semibold">Kementrian/Lembaga Non BPS</label><br />
                                     <div className={`relative bg-gray-100 flex justify-between items-center rounded-md ${textOffice ? '' : 'hidden'}`}>
                                         {textOffice
-                                            ? (<input type="text" id="textKementrian" placeholder="Isikan nama instansi anda" name="textKementrian" className={`bg-gray-100 w-full text-gray-500 border-none rounded-md`}/>)
+                                            ? (<input type="text" id="textKementrian" placeholder="Isikan nama instansi anda" name="textKementrian" className={`bg-gray-100 w-full text-gray-500 rounded-md border-none focus:ring-secondaryBrown focus:ring-2 transition duration-300`}/>)
                                             : (<input type="text" defaultValue={""} id="textKementrian" name="textKementrian" className={`bg-gray-100 w-full text-gray-500 border-none rounded-md hidden`}/>)
                                         }
                                         <div onClick={() => {setTextOffice(!textOffice); setOpenOffice(!openOffice)}} className="py-2 px-4 cursor-pointer">
@@ -430,7 +429,7 @@ export default function Register(){
                                     <label className="font-semibold">Unit Kerja</label><br />
                                     <div className={`relative bg-gray-100 flex justify-between items-center rounded-md ${textWork ? '' : 'hidden'}`}>
                                         {textWork
-                                            ? (<input type="text" id="textWork" name="textWork" placeholder="Isikan unit kerja anda" className={`bg-gray-100 w-full text-gray-500 border-none rounded-md`}/>)
+                                            ? (<input type="text" id="textWork" name="textWork" placeholder="Isikan unit kerja anda" className={`bg-gray-100 w-full text-gray-500 rounded-md border-none focus:ring-secondaryBrown focus:ring-2 transition duration-300`}/>)
                                             : (<input type="text" defaultValue={""} id="textWork" name="textWork" className={`bg-gray-100 w-full text-gray-500 border-none rounded-md hidden`}/>)
                                         }
                                         <div onClick={() => {setTextWork(!textWork); setOpenWork(!openWork);}} className="py-2 px-4 cursor-pointer">
