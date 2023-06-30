@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 import { useState, useEffect } from "react";
 import arrowDown from "@/public/asset/Arrow Down.png";
@@ -98,8 +99,8 @@ export default function CompType() {
                 {openCompts ? <img src={arrowUp.src} alt="" className="inline" /> : <img src={arrowDown.src} alt="" className="inline" />}
               </div>
               <ul onClick={() => setOpenCompts(!openCompts)} className={`bg-white mt-2 shadow-md rounded-md border-gray-100 border ${openCompts ? 'absolute w-full z-10' : 'hidden'}`}>
-                  {linkCompts.map((linkCompts) => (
-                      <li onClick={() => {setSelectedCompts(linkCompts);}} className={`hover:bg-base p-2 rounded-md cursor-pointer ${selectedCompts==linkCompts ? 'text-primary border-l-4 border-primary' : ''}`}>
+                  {linkCompts.map((linkCompts,index) => (
+                      <li key={index} onClick={() => {setSelectedCompts(linkCompts);}} className={`hover:bg-base p-2 rounded-md cursor-pointer ${selectedCompts==linkCompts ? 'text-primary border-l-4 border-primary' : ''}`}>
                           {linkCompts}
                       </li>
                   ))}
@@ -115,8 +116,8 @@ export default function CompType() {
                 {openCompts ? <img src={arrowUp.src} alt="" className="inline" /> : <img src={arrowDown.src} alt="" className="inline" />}
               </div>
               <ul onClick={() => setOpenCompts(!openCompts)} className={`bg-white mt-2 shadow-md rounded-md border-gray-100 border ${openCompts ? 'absolute w-full z-10' : 'hidden'}`}>
-                  {linkCompts.map((linkCompts) => (
-                      <li onClick={() => {setSelectedCompts(linkCompts);}} className={`hover:bg-base p-2 rounded-md cursor-pointer ${selectedCompts==linkCompts ? 'text-primary border-l-4 border-primary' : ''}`}>
+                  {linkCompts.map((linkCompts,index) => (
+                    <li key={index} onClick={() => {setSelectedCompts(linkCompts);}} className={`hover:bg-base p-2 rounded-md cursor-pointer ${selectedCompts==linkCompts ? 'text-primary border-l-4 border-primary' : ''}`}>
                           {linkCompts}
                       </li>
                   ))}
