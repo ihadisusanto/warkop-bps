@@ -295,7 +295,7 @@ export default function Register(){
 
     return (
         <MantineProvider withNormalizeCSS withGlobalStyles>
-        <Notifications/>
+        <Notifications position="top-right"/>
         <div>
             <Header/>
             <div className="flex justify-between bg-base mt-24 py-14 px-4 md:px-8">
